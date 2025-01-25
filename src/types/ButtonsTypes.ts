@@ -1,5 +1,5 @@
 import { Icon } from "@iconify-icon/react";
-import { IconButtonProps } from "rsuite";
+import { ButtonGroupProps, IconButtonProps } from "rsuite";
 
 export interface AppIconProps
   extends Omit<React.ComponentProps<typeof Icon>, "ref"> {
@@ -9,4 +9,7 @@ export interface AppIconProps
 export interface AppIconButtonProps extends Omit<IconButtonProps, "icon"> {
   iconProps: AppIconProps;
   children?: React.ReactNode; // Optional children for additional content
+}
+export interface AppButtonGroupProps extends ButtonGroupProps {
+  children: React.ReactNode;
 }

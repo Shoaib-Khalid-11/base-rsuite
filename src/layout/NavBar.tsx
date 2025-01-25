@@ -31,40 +31,42 @@ const SimpleNavBar = () => {
               </HStack>
             </Nav>
             <Nav pullRight>
-              <ButtonToolbar>
-                <ButtonGroup size="lg">
-                  <AppIconButton
-                    iconProps={{
-                      icon: "line-md:sunny-filled-loop",
-                      color: "yellow",
-                    }}
-                    color="yellow"
-                    appearance="subtle"
-                    size="lg"
-                    onClick={() => setModeRuducer("light")}
-                  />
-                  <AppIconButton
-                    iconProps={{
-                      icon: "line-md:moon-rising-alt-loop",
-                      color: "white",
-                    }}
-                    color="blue"
-                    appearance="subtle"
-                    size="lg"
-                    onClick={() => setModeRuducer("dark")}
-                  />
-                  <AppIconButton
-                    iconProps={{
-                      icon: "tabler:sun-moon",
-                      color: "green",
-                    }}
-                    color="violet"
-                    appearance="subtle"
-                    size="lg"
-                    onClick={() => setModeRuducer("high-contrast")}
-                  />
-                </ButtonGroup>
-              </ButtonToolbar>
+              <Nav.Item as={"div"}>
+                <ButtonToolbar>
+                  <ButtonGroup size="lg">
+                    <AppIconButton
+                      iconProps={{
+                        icon: "line-md:sunny-filled-loop",
+                        color: "yellow",
+                      }}
+                      color="yellow"
+                      appearance="subtle"
+                      size="lg"
+                      onClick={() => setModeRuducer("light")}
+                    />
+                    <AppIconButton
+                      iconProps={{
+                        icon: "line-md:moon-rising-alt-loop",
+                        color: "white",
+                      }}
+                      color="blue"
+                      appearance="subtle"
+                      size="lg"
+                      onClick={() => setModeRuducer("dark")}
+                    />
+                    <AppIconButton
+                      iconProps={{
+                        icon: "tabler:sun-moon",
+                        color: "green",
+                      }}
+                      color="violet"
+                      appearance="subtle"
+                      size="lg"
+                      onClick={() => setModeRuducer("high-contrast")}
+                    />
+                  </ButtonGroup>
+                </ButtonToolbar>
+              </Nav.Item>
             </Nav>
           </Navbar>
         </Header>
