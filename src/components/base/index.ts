@@ -8,3 +8,6 @@ export * from "./AppAlertMessage";
 export * from "./AppBadge";
 export * from "./AppNotification";
 export * from "./AppProgress";
+export * from "./AppHeading";
+export * from "./AppText";
+export * from "./AppHighlight";
