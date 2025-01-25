@@ -1,4 +1,4 @@
-import { AppButton } from "components/base";
+import { AppIconButton } from "components/base";
 import { useAppStore } from "hooks";
 import { Link } from "react-router-dom";
 import {
@@ -33,30 +33,36 @@ const SimpleNavBar = () => {
             <Nav pullRight>
               <ButtonToolbar>
                 <ButtonGroup size="lg">
-                  <AppButton
-                    color="green"
-                    appearance="link"
+                  <AppIconButton
+                    iconProps={{
+                      icon: "line-md:sunny-filled-loop",
+                      color: "yellow",
+                    }}
+                    color="yellow"
+                    appearance="subtle"
                     size="lg"
                     onClick={() => setModeRuducer("light")}
-                  >
-                    light
-                  </AppButton>
-                  <AppButton
-                    color="red"
+                  />
+                  <AppIconButton
+                    iconProps={{
+                      icon: "line-md:moon-rising-alt-loop",
+                      color: "white",
+                    }}
+                    color="blue"
                     appearance="subtle"
                     size="lg"
                     onClick={() => setModeRuducer("dark")}
-                  >
-                    dark
-                  </AppButton>
-                  <AppButton
+                  />
+                  <AppIconButton
+                    iconProps={{
+                      icon: "tabler:sun-moon",
+                      color: "green",
+                    }}
                     color="violet"
-                    appearance="primary"
+                    appearance="subtle"
                     size="lg"
                     onClick={() => setModeRuducer("high-contrast")}
-                  >
-                    contrast
-                  </AppButton>
+                  />
                 </ButtonGroup>
               </ButtonToolbar>
             </Nav>

@@ -1,20 +1,23 @@
-import { IconButton, IconButtonProps } from "rsuite";
-// import { Icon, IconifyIconProps } from "@iconify-icon/react";
+import React from "react";
+import { IconButton } from "rsuite";
+import AppIcon from "./AppIcon"; // Your custom AppIcon component
+import { AppIconButtonProps } from "types";
 
-export interface AppIconButtonProps extends IconButtonProps {
-  //   iconProps?: IconifyIconProps; // Optional icon props
-  children?: React.ReactNode; // Optional children
-}
-
-const AppIconButton: React.FC<AppIconButtonProps> = ({
+export const AppIconButton: React.FC<AppIconButtonProps> = ({
+  iconProps,
   children,
-  //   iconProps,
-  ...props
+  ...rest
 }) => {
   return (
     <IconButton
-      {...props}
-      //   icon={<Icon {...iconProps} icon={iconProps?.icon ?? ""} />}
+      {...rest}
+      icon={
+        <AppIcon
+          icon={iconProps.icon}
+          size={iconProps.size}
+          color={iconProps.color}
+        />
+      }
     >
       {children}
     </IconButton>
