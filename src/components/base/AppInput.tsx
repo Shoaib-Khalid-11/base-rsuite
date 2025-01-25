@@ -1,7 +1,9 @@
 import { Input } from "rsuite";
 import { AppInputProps } from "types";
 
-const AppInput = <T extends string | number | readonly string[] | undefined>({
+export const AppInput = <
+  T extends string | number | readonly string[] | undefined
+>({
   value,
   ...inputProps
 }: AppInputProps<T>) => {

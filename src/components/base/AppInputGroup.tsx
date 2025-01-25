@@ -2,7 +2,7 @@ import { InputGroup } from "rsuite";
 import AppInput from "./AppInput";
 import { AppInputGroupProps } from "types";
 
-const AppInputGroup = <
+export const AppInputGroup = <
   T extends string | number | readonly string[] | undefined
 >({
   // value,
