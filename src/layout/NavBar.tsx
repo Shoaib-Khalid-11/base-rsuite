@@ -1,34 +1,54 @@
-import { AppIconButton } from "components/base";
+import { AppButton, AppIconButton } from "components/base";
 import { useAppStore } from "hooks";
 import { Link } from "react-router-dom";
 import {
   ButtonGroup,
   ButtonToolbar,
+  Col,
   Container,
+  Grid,
   Header,
-  HStack,
   Nav,
   Navbar,
+  Row,
 } from "rsuite";
+import { breakpoints, useBreakpoint } from "themes/hooks";
 
 const SimpleNavBar = () => {
   const { setModeRuducer } = useAppStore();
+  const [isXS] = useBreakpoint([breakpoints.xs]);
+  console.log("isXS", isXS);
   return (
     <>
       <Container>
         <Header>
-          <Navbar appearance="inverse">
-            <Navbar.Brand>Navbar</Navbar.Brand>
+          <Navbar appearance="subtle">
+            {/* <Navbar.Brand
+              icon={<AppIconButton iconProps={{ icon: "logo" }} />}
+            ></Navbar.Brand> */}
             <Nav>
-              <HStack spacing={30}>
-                <Nav.Item eventKey="home" as={Link} to={"/"}>
-                  Home
-                </Nav.Item>
-                <Nav.Item eventKey="link">Link</Nav.Item>
-                <Nav.Item eventKey="profile" as={Link} to={"/login"}>
-                  login
-                </Nav.Item>
-              </HStack>
+              <Nav.Item eventKey="home" as={Link} to={"/"}>
+                <AppIconButton
+                  iconProps={{ icon: "line-md:menu-unfold-left" }}
+                  appearance="subtle"
+                  size="lg"
+                />
+              </Nav.Item>
+            </Nav>
+            <Nav>
+              <Grid fluid>
+                <Row gutter={20} className="show-grid">
+                  <Col xs={12} sm={6} md={6} lg={12}>
+                    <Nav.Item eventKey="home" as={Link} to={"/"}>
+                      <AppButton>Home</AppButton>
+                    </Nav.Item>
+                  </Col>
+                  <Nav.Item eventKey="link">Link</Nav.Item>
+                  <Nav.Item eventKey="profile" as={Link} to={"/login"}>
+                    login
+                  </Nav.Item>
+                </Row>
+              </Grid>
             </Nav>
             <Nav pullRight>
               <Nav.Item as={"div"}>
