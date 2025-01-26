@@ -10,7 +10,7 @@ export const useData = () => {
       [breakpoints.lg]: 40,
       [breakpoints.xl]: 50,
     },
-    { defaultValue: 10 }
+    { defaultValue: 50 }
   );
   return { size };
 };

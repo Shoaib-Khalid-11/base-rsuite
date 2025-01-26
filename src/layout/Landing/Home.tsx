@@ -6,7 +6,9 @@ const LandingPage = () => {
   return (
     <>
       <SimpleNavBar />
-      <h1>Home {size}</h1>
+      <h1 className="text-9xl font-bold underline text-blue-700">
+        Home {size}
+      </h1>
     </>
   );
 };

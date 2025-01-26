@@ -8,3 +8,6 @@ export * from "./ProgressTypes";
 export * from "./TosterTypes";
 export * from "./Typography";
 export * from "./DrawrTypes";
+export * from "./DropDownTypes";
+export * from "./ModelTypes";
+export * from "./PopOverTypes";
