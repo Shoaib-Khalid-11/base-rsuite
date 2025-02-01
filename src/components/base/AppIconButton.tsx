@@ -1,27 +1,18 @@
-// import React from "react";
-// import { IconButton } from "rsuite";
-// import AppIcon from "./AppIcon"; // Your custom AppIcon component
-// import { AppIconButtonProps } from "types";
+import { IconButton, IconButtonProps } from "@chakra-ui/react";
+import AppIcon from "./AppIcon";
+import { AppIconProps } from "types";
+export interface AppIconButtonProps extends IconButtonProps {
+  AppIconProps: AppIconProps;
+}
+export const AppIconButton: React.FC<AppIconButtonProps> = ({
+  AppIconProps,
+  ...props
+}) => {
+  return (
+    <IconButton {...props}>
+      <AppIcon {...AppIconProps} />
+    </IconButton>
+  );
+};
 
-// export const AppIconButton: React.FC<AppIconButtonProps> = ({
-//   iconProps,
-//   children,
-//   ...rest
-// }) => {
-//   return (
-//     <IconButton
-//       {...rest}
-//       icon={
-//         <AppIcon
-//           icon={iconProps.icon}
-//           size={iconProps.size}
-//           color={iconProps.color}
-//         />
-//       }
-//     >
-//       {children}
-//     </IconButton>
-//   );
-// };
-
-// export default AppIconButton;
+export default AppIconButton;

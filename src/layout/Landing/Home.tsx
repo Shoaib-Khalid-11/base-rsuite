@@ -1,7 +1,13 @@
+import { Container } from "@chakra-ui/react";
+import NavBar from "layout/NavBar";
+
 const LandingPage = () => {
   return (
     <>
-      <h1 className="text-9xl font-bold underline text-blue-700">Home</h1>
+      <NavBar />
+      <Container>
+        <h1>Home</h1>
+      </Container>
     </>
   );
 };
