@@ -11,3 +11,4 @@ export * from "./DrawrTypes";
 export * from "./DropDownTypes";
 export * from "./ModelTypes";
 export * from "./PopOverTypes";
+export * from "./Menu";

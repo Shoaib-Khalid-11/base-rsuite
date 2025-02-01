@@ -1,16 +1,20 @@
 import { Box, Container, Flex } from "@chakra-ui/react";
 import { AppIconButton } from "components/base";
 import { useColorMode } from "components/ui/color-mode";
+import { useGetMenuMaster, useToggleDrawerOpen } from "hooks/menu";
 
 const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
-
+  const handleDrawr = useToggleDrawerOpen();
+  const { menuMaster } = useGetMenuMaster();
+  const drawerOpen = menuMaster?.isDashboardDrawerOpened;
   return (
     <>
       <Container>
         <Flex py={2} alignItems={"center"} justifyContent={"space-between"}>
           <Box>
             <AppIconButton
+              onClick={() => handleDrawr.mutate(!drawerOpen)}
               variant={"ghost"}
               AppIconProps={{ icon: "line-md:menu-unfold-left" }}
             />
