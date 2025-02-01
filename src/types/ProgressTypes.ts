@@ -1,7 +1,7 @@
-import { ProgressCircleProps, ProgressLineProps } from "rsuite";
+// import { ProgressCircleProps, ProgressLineProps } from "rsuite";
 
-export interface AppProgressProps
-  extends ProgressLineProps,
-    ProgressCircleProps {
-  type: "line" | "circle";
-}
+// export interface AppProgressProps
+//   extends ProgressLineProps,
+//     ProgressCircleProps {
+//   type: "line" | "circle";
+// }

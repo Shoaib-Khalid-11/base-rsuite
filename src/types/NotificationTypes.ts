@@ -1,5 +1,5 @@
-import { NotificationProps } from "rsuite";
+// import { NotificationProps } from "rsuite";
 
-export interface AppNotificationProps extends NotificationProps {
-  children: React.ReactNode;
-}
+// export interface AppNotificationProps extends NotificationProps {
+//   children: React.ReactNode;
+// }

@@ -1,5 +1,5 @@
-import { MessageProps } from "rsuite";
+// import { MessageProps } from "rsuite";
 
-export interface AppAlertMessageProps extends MessageProps {
-  children: React.ReactNode;
-}
+// export interface AppAlertMessageProps extends MessageProps {
+//   children: React.ReactNode;
+// }

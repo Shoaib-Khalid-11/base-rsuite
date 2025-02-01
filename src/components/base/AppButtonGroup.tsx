@@ -1,11 +1,11 @@
-import { ButtonGroup } from "rsuite";
-import { AppButtonGroupProps } from "types";
+// import { ButtonGroup } from "rsuite";
+// import { AppButtonGroupProps } from "types";
 
-export const AppButtonGroup: React.FC<AppButtonGroupProps> = ({
-  children,
-  ...props
-}) => {
-  return <ButtonGroup {...props}>{children}</ButtonGroup>;
-};
+// export const AppButtonGroup: React.FC<AppButtonGroupProps> = ({
+//   children,
+//   ...props
+// }) => {
+//   return <ButtonGroup {...props}>{children}</ButtonGroup>;
+// };
 
-export default AppButtonGroup;
+// export default AppButtonGroup;

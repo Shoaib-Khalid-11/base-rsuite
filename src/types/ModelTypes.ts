@@ -1,5 +1,5 @@
-import { ModalProps } from "rsuite";
+// import { ModalProps } from "rsuite";
 
-export interface AppModelProps extends ModalProps {
-  children: React.ReactNode;
-}
+// export interface AppModelProps extends ModalProps {
+//   children: React.ReactNode;
+// }

@@ -1,5 +1,5 @@
-import { BadgeProps } from "rsuite";
+// import { BadgeProps } from "rsuite";
 
-export interface AppBadgeProps extends BadgeProps {
-  children?: React.ReactNode;
-}
+// export interface AppBadgeProps extends BadgeProps {
+//   children?: React.ReactNode;
+// }

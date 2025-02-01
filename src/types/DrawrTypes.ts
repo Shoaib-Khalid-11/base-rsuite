@@ -1,5 +1,5 @@
-import { DrawerProps } from "rsuite";
+// import { DrawerProps } from "rsuite";
 
-export interface AppDrawerProps extends DrawerProps {
-  children: React.ReactNode;
-}
+// export interface AppDrawerProps extends DrawerProps {
+//   children: React.ReactNode;
+// }

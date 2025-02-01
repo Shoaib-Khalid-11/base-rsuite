@@ -1,13 +1,13 @@
-import { Input } from "rsuite";
-import { AppInputProps } from "types";
+// import { Input } from "rsuite";
+// import { AppInputProps } from "types";
 
-export const AppInput = <
-  T extends string | number | readonly string[] | undefined
->({
-  value,
-  ...inputProps
-}: AppInputProps<T>) => {
-  return <Input {...inputProps} value={value} />;
-};
+// export const AppInput = <
+//   T extends string | number | readonly string[] | undefined
+// >({
+//   value,
+//   ...inputProps
+// }: AppInputProps<T>) => {
+//   return <Input {...inputProps} value={value} />;
+// };
 
-export default AppInput;
+// export default AppInput;
