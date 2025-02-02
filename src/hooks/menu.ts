@@ -15,12 +15,11 @@ export const useGetMenuMaster = () => {
   });
   const memoizedValue = useMemo(
     () => ({
-      menuMaster: data as MenuProps,
+      menuMaster: (data as MenuProps) ?? initialState,
       menuMasterLoading: isLoading,
     }),
     [data, isLoading]
   );
-
   return memoizedValue;
 };
 export const useToggleComponentDrawer = () => {
