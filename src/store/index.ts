@@ -17,6 +17,10 @@ export const store = configureStore({
       app: appSlice.reducer,
     })
   ),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // Disables the serializability check
+    }),
 });
 export type IAppStore = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
