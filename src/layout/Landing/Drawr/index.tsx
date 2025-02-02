@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 
 import { DrawerHeader, DrawerRoot, DrawerTitle } from "components/ui/drawer";
-import { DRAWER_WIDTH } from "configs";
+// import { DRAWER_WIDTH } from "configs";
 interface MainDrawrProps {
   window?: () => Window;
 }
@@ -27,7 +27,7 @@ export const MainDrawr: React.FC<MainDrawrProps> = ({ window }) => {
       zIndex={1200}
       aria-label="mailbox folders"
     >
-      {downLG ? (
+      {!downLG ? (
         <Box></Box>
       ) : (
         // <></>
@@ -37,7 +37,7 @@ export const MainDrawr: React.FC<MainDrawrProps> = ({ window }) => {
           placement={"start"}
           // onClose={() => handleDrawr.mutate(!drawerOpen)}
           onOpenChange={(e: { open: boolean }) => handleDrawr.mutate(e.open)}
-          size={"sm"}
+          // size={DRAWER_WIDTH}
           container={container}
         >
           {/* <DrawerBackdrop /> */}
@@ -45,7 +45,7 @@ export const MainDrawr: React.FC<MainDrawrProps> = ({ window }) => {
           <DrawerContent>
             <DrawerBody
               display={{ base: "block", lg: "none" }}
-              width={DRAWER_WIDTH}
+              // width={DRAWER_WIDTH}
               boxSizing={"border-box"}
               borderRight={"1px solid grey.300"}
               height={"100vh"}
