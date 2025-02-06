@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { generalSlice } from "./features";
+import { generalSlice } from "./reduxReducer";
 import { useDispatch, useSelector } from "react-redux";
 import persistStore from "redux-persist/es/persistStore";
-import { appSlice } from "./features/app.slice";
+import { appSlice } from "./reduxReducer/app.slice";
 
 export const store = configureStore({
   reducer: persistReducer(

@@ -12,7 +12,7 @@ import {
   onChangeMiniDrawer,
   onChangeMode,
   onChangePresetColor,
-} from "store/features";
+} from "store/reduxReducer";
 import {
   FontFamily,
   I18n,
