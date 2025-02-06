@@ -7,3 +7,6 @@ export * from "./AppMUITypography";
 export * from "./AppMUIButton";
 export * from "./AppMUIMenu";
 export * from "./AppMUIMenuItem";
+export * from "./AppIcon";
+export * from "./AppMUIAvatar";
+export * from "./AppMUIToolTip";
