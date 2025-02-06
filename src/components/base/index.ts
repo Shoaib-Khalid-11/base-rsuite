@@ -5,3 +5,5 @@ export * from "./AppMUIToolBar";
 export * from "./AppMUIIconButton";
 export * from "./AppMUITypography";
 export * from "./AppMUIButton";
+export * from "./AppMUIMenu";
+export * from "./AppMUIMenuItem";

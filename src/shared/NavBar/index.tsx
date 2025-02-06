@@ -1,6 +1,4 @@
-import AppMUIBox from "components/base/AppMUIBox";
-import AppMUIContainer from "components/base/AppMUIContainer";
-import AppMUIToolBar from "components/base/AppMUIToolBar";
+import { AppMUIBox, AppMUIContainer, AppMUIToolBar } from "components/base";
 
 const NavBar = () => {
   return (

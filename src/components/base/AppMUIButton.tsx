@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from "@mui/material";
 
-const AppMUIButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+export const AppMUIButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <>
       <Button {...props}>{children}</Button>

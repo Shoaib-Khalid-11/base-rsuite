@@ -1,6 +1,6 @@
 import { Typography, TypographyProps } from "@mui/material";
 
-const AppMUITypography: React.FC<TypographyProps> = ({
+export const AppMUITypography: React.FC<TypographyProps> = ({
   children,
   ...props
 }) => {
