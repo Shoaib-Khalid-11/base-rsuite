@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAppStore } from "store";
 import {
-  CustomizationProps,
+  DefaultConfigProps,
   FontFamily,
   I18n,
   MenuOrientation,
   PresetColor,
   ThemeDirection,
   ThemeMode,
-} from "types/config";
+} from "types/config.model";
 
-const initialState: CustomizationProps = {
+const initialState: DefaultConfigProps = {
   fontFamily: "'Roboto', sans-serif",
   i18n: "en",
   miniDrawer: false,
@@ -28,61 +28,61 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     onChangeContainer: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<boolean>
     ) => {
       state.container = action.payload;
     },
     onChangeLocalization: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<I18n>
     ) => {
       state.i18n = action.payload;
     },
     onChangeMode: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<ThemeMode>
     ) => {
       state.mode = action.payload;
     },
     onChangePresetColor: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<PresetColor>
     ) => {
       state.presetColor = action.payload;
     },
     onChangeDirection: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<ThemeDirection>
     ) => {
       state.themeDirection = action.payload;
     },
     onChangeMiniDrawer: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<boolean>
     ) => {
       state.miniDrawer = action.payload;
     },
     onChangeMenuOrientation: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<MenuOrientation>
     ) => {
       state.menuOrientation = action.payload;
     },
     onChangeMenuCaption: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<boolean>
     ) => {
       state.menuCaption = action.payload;
     },
     onChangeFontFamily: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<FontFamily>
     ) => {
       state.fontFamily = action.payload;
     },
     onChangeContrast: (
-      state: CustomizationProps,
+      state: DefaultConfigProps,
       action: PayloadAction<boolean>
     ) => {
       state.themeContrast = action.payload;
@@ -104,4 +104,4 @@ export const {
 
 export const appReducerSelector = (
   generalState: IAppStore
-): CustomizationProps => generalState.app;
+): DefaultConfigProps => generalState.app;

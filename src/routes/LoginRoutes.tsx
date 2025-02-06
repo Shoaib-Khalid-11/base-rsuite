@@ -1,8 +1,8 @@
-import { AuthLayout } from "layout/Auth";
+// import { AuthLayout } f  rom "layout/Auth";
 
 const LoginRoutes = {
   path: "/",
-  element: <AuthLayout />,
+  element: <>Login Layout</>,
   children: [
     {
       path: "login",
