@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
-import { MenuProps } from "types";
+import { MenuProps } from "types/menu.model";
 const initialState: MenuProps = {
   isDashboardDrawerOpened: false,
   isComponentDrawerOpened: true,

@@ -20,7 +20,7 @@ import {
   PresetColor,
   ThemeDirection,
   ThemeMode,
-} from "types/config";
+} from "types/config.model";
 
 export const useAppStore = () => {
   const dispatch = useAppDispatch();
