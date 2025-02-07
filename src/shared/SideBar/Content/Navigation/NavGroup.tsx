@@ -28,6 +28,7 @@ import { MenuOrientation, ThemeMode } from "types/config.model";
 import { FormattedMessage } from "react-intl";
 import Transitions from "components/animation/Transitions";
 import SimpleBarScroll from "components/third-party/SimpleBarScroll";
+import NavCollapse from "./NavCollapse";
 interface Props {
   item: NavItemType;
   lastItem: number;
@@ -174,17 +175,16 @@ const NavGroup: React.FC<Props> = ({
     switch (menuItem.type) {
       case "collapse":
         return (
-          <></>
-          // <NavCollapse
-          //   key={menuItem.id}
-          //   menu={menuItem}
-          //   setSelectedItems={setSelectedItems}
-          //   setSelectedLevel={setSelectedLevel}
-          //   selectedLevel={selectedLevel}
-          //   selectedItems={selectedItems}
-          //   level={1}
-          //   parentId={currentItem.id!}
-          // />
+          <NavCollapse
+            key={menuItem.id}
+            menu={menuItem}
+            setSelectedItems={setSelectedItems}
+            setSelectedLevel={setSelectedLevel}
+            selectedLevel={selectedLevel}
+            selectedItems={selectedItems}
+            level={1}
+            parentId={currentItem.id!}
+          />
         );
       case "item":
         return <NavItem key={menuItem.id} item={menuItem} level={1} />;
@@ -216,17 +216,16 @@ const NavGroup: React.FC<Props> = ({
         switch (menu.type) {
           case "collapse":
             return (
-              <></>
-              // <NavCollapse
-              //   key={menu.id}
-              //   menu={menu}
-              //   level={1}
-              //   parentId={currentItem.id!}
-              //   setSelectedItems={setSelectedItems}
-              //   setSelectedLevel={setSelectedLevel}
-              //   selectedLevel={selectedLevel}
-              //   selectedItems={selectedItems}
-              // />
+              <NavCollapse
+                key={menu.id}
+                menu={menu}
+                level={1}
+                parentId={currentItem.id!}
+                setSelectedItems={setSelectedItems}
+                setSelectedLevel={setSelectedLevel}
+                selectedLevel={selectedLevel}
+                selectedItems={selectedItems}
+              />
             );
           case "item":
             return <NavItem key={menu.id} item={menu} level={1} />;
@@ -249,17 +248,16 @@ const NavGroup: React.FC<Props> = ({
     switch (menu?.type) {
       case "collapse":
         return (
-          <></>
-          //  <NavCollapse
-          //    key={menu.id}
-          //    menu={menu}
-          //    level={1}
-          //    parentId={currentItem.id!}
-          //    setSelectedItems={setSelectedItems}
-          //    setSelectedLevel={setSelectedLevel}
-          //    selectedLevel={selectedLevel}
-          //    selectedItems={selectedItems}
-          //  />
+          <NavCollapse
+            key={menu.id}
+            menu={menu}
+            level={1}
+            parentId={currentItem.id!}
+            setSelectedItems={setSelectedItems}
+            setSelectedLevel={setSelectedLevel}
+            selectedLevel={selectedLevel}
+            selectedItems={selectedItems}
+          />
         );
       case "item":
         return <NavItem key={menu.id} item={menu} level={1} />;
