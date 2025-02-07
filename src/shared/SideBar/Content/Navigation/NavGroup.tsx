@@ -1,13 +1,14 @@
-import { styled, useMediaQuery, useTheme } from "@mui/material";
+import { Popper, styled, useMediaQuery, useTheme } from "@mui/material";
 import {
   AppIcon,
   AppMUIBox,
+  AppMUIClickAwayListener,
   AppMUIDivider,
   AppMUIList,
   AppMUIListItemButton,
   AppMUIListItemIcon,
   AppMUIListItemText,
-  AppMUIPopper,
+  AppMUIPaper,
   AppMUITypography,
 } from "components/base";
 import { useAppStore } from "hooks";
@@ -24,6 +25,9 @@ import { matchPath, useLocation } from "react-router-dom";
 import { NavItemType } from "types/menu.model";
 import NavItem from "./NavItem";
 import { MenuOrientation, ThemeMode } from "types/config.model";
+import { FormattedMessage } from "react-intl";
+import Transitions from "components/animation/Transitions";
+import SimpleBarScroll from "components/third-party/SimpleBarScroll";
 interface Props {
   item: NavItemType;
   lastItem: number;
@@ -40,7 +44,7 @@ type VirtualElement = {
   getBoundingClientRect: () => DOMRect;
   contextElement?: Element;
 };
-const PopperStyled = styled(AppMUIPopper)(({ theme }) => ({
+const PopperStyled = styled(Popper)(({ theme }) => ({
   overflow: "visible",
   zIndex: 1202,
   minWidth: 180,
@@ -90,6 +94,7 @@ const NavGroup: React.FC<Props> = ({
   useEffect(() => {
     if (lastItem) {
       if (item.id === lastItemId) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const localItem: any = { ...item };
         const elements = remItems.map((ele: NavItemType) => ele.elements);
         localItem.children = elements.flat(1);
@@ -354,14 +359,51 @@ const NavGroup: React.FC<Props> = ({
                   sx={{ fontWeight: isSelected ? 500 : 400 }}
                 >
                   {currentItem.id === lastItemId ? (
-                    <></>
+                    <FormattedMessage id="more-items" />
                   ) : (
-                    // <FormattedMessage id="more-items" />
                     currentItem.title
                   )}
                 </AppMUITypography>
               }
             />
+            {anchorEl && (
+              <PopperStyled
+                id={popperId}
+                open={openMini}
+                anchorEl={anchorEl}
+                placement="bottom-start"
+                style={{ zIndex: 2001 }}
+              >
+                {({ TransitionProps }) => (
+                  <Transitions in={openMini} {...TransitionProps}>
+                    <AppMUIPaper
+                      sx={{
+                        mt: 0.5,
+                        py: 1.25,
+                        boxShadow: theme.shadows[16],
+                        border: "1px solid ",
+                        borderColor: "divider",
+                        backgroundImage: "none",
+                      }}
+                    >
+                      <AppMUIClickAwayListener onClickAway={handleClose}>
+                        <>
+                          <SimpleBarScroll
+                            sx={{
+                              minWidth: 200,
+                              overflowY: "auto",
+                              maxHeight: "calc(100vh - 170px)",
+                            }}
+                          >
+                            {currentItem.id !== lastItemId ? items : moreItems}
+                          </SimpleBarScroll>
+                        </>
+                      </AppMUIClickAwayListener>
+                    </AppMUIPaper>
+                  </Transitions>
+                )}
+              </PopperStyled>
+            )}
           </AppMUIListItemButton>
         </AppMUIList>
       )}
