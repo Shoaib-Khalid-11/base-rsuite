@@ -5,6 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CustomThemeProvider from "theme";
+import Locales from "components/custom/locales";
 
 function App() {
   const queryClient = new QueryClient();
@@ -14,7 +15,9 @@ function App() {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <QueryClientProvider client={queryClient}>
-              <RouterProvider router={router} />
+              <Locales>
+                <RouterProvider router={router} />
+              </Locales>
             </QueryClientProvider>
           </PersistGate>
         </Provider>

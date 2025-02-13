@@ -8,6 +8,7 @@ import { MenuOrientation } from "types/config.model";
 import { NavItemType } from "types/menu.model";
 import NavItem from "./NavItem";
 import NavGroup from "./NavGroup";
+import menuItem from "content/menuitems";
 
 const Navigation = () => {
   const theme = useTheme();
@@ -24,14 +25,16 @@ const Navigation = () => {
     items: [],
   });
   useLayoutEffect(() => {
-    setMenuItems({ items: [] });
+    setMenuItems({ items: [...menuItem.items] });
   }, []);
   const isHorizontal =
     menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
+
   const lastItem = isHorizontal ? HORIZONTAL_MAX_ITEM : null;
   let lastItemIndex = menuItems.items.length - 1;
   let remItems: NavItemType[] = [];
   let lastItemId: string;
+
   if (lastItem && lastItem < menuItems.items.length) {
     lastItemId = menuItems.items[lastItem - 1].id!;
     lastItemIndex = lastItem - 1;
