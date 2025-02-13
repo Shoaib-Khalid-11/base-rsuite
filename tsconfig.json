@@ -1,5 +1,5 @@
 {
-  "files": [],
+  // "files": [],
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "noEmit": true,
@@ -11,7 +11,7 @@
     "outDir": "./dist",
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext", "ES2017"],
-    "allowJs": false,
+    "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -30,6 +30,13 @@
     "baseUrl": "./src"
   },
   "exclude": ["node_modules"],
-  "include": ["src", "**/*.ts", "**/*.tsx", "src/**/*", "vite.config.ts"],
+  "include": [
+    "src",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/**/*",
+    "vite.config.ts",
+    "src/utils/locales/**/*.json"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

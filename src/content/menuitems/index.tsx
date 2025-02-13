@@ -5,7 +5,7 @@ const menuItem: { items: NavItemType[] } = {
   items: [
     {
       id: "single-home",
-      title: <FormattedMessage id="home" />,
+      title: <FormattedMessage id="home" defaultMessage="Home" />,
       type: "group",
       target: true,
       url: "https://www.youtube.com/",

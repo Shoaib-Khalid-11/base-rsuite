@@ -3,18 +3,23 @@ import { ReactNode, useEffect, useState } from "react";
 import { IntlProvider, MessageFormatElement } from "react-intl";
 import { I18n } from "types/config.model";
 
-const loadLocaleData = (locale: I18n) => {
-  switch (locale) {
-    case "fr":
-      return import("utils/locales/fr.json");
-    case "ro":
-      return import("utils/locales/ro.json");
-    case "zh":
-      return import("utils/locales/zh.json");
-    case "en":
-      return import("utils/locales/en.json");
-    default:
-      return import("utils/locales/en.json");
+const localeMap: Record<
+  I18n,
+  () => Promise<{
+    default: Record<string, string> | Record<string, MessageFormatElement[]>;
+  }>
+> = {
+  fr: () => import("utils/locales/fr.json"),
+  ro: () => import("utils/locales/ro.json"),
+  zh: () => import("utils/locales/zh.json"),
+  en: () => import("utils/locales/en.json"),
+};
+const loadLocaleData = async (locale: I18n) => {
+  try {
+    return (await (localeMap[locale] || localeMap.en)()).default;
+  } catch (e) {
+    console.error(`Failed to load locale ${locale}, falling back to English.`);
+    return (await localeMap.en()).default;
   }
 };
 interface Props {
@@ -22,30 +27,23 @@ interface Props {
 }
 export const Locales: React.FC<Props> = ({ children }) => {
   const [messages, setMessages] = useState<
-    Record<string, string> | Record<string, MessageFormatElement[]> | undefined
-  >();
+    Record<string, string> | Record<string, MessageFormatElement[]>
+  >({});
   const {
     appStateValue: { i18n },
   } = useAppStore();
+  console.log(i18n);
   useEffect(() => {
-    loadLocaleData(i18n).then(
-      (d: {
-        default:
-          | Record<string, string>
-          | Record<string, MessageFormatElement[]>
-          | undefined;
-      }) => {
-        setMessages(d.default);
-      }
-    );
+    loadLocaleData(i18n).then(setMessages);
   }, [i18n]);
+  if (!messages) {
+    return <p>Loading translations...</p>; // Add a proper loader if needed
+  }
   return (
     <>
-      {messages && (
-        <IntlProvider locale={i18n} defaultLocale="en" messages={messages}>
-          {children}
-        </IntlProvider>
-      )}
+      <IntlProvider locale={"zh"} defaultLocale="en" messages={messages}>
+        {children}
+      </IntlProvider>
     </>
   );
 };
