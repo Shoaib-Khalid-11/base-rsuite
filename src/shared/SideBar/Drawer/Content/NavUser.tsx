@@ -2,8 +2,8 @@ import {
   IconButton,
   IconButtonProps,
   styled,
-  Theme,
-  useTheme,
+  // Theme,
+  // useTheme,
 } from "@mui/material";
 import {
   AppIcon,
@@ -20,14 +20,15 @@ import { useGetMenuMaster } from "hooks/menu";
 import { MouseEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 interface ExpandMoreProps extends IconButtonProps {
-  theme: Theme;
+  // theme: Theme;
   expand: boolean;
   drawerOpen: boolean;
 }
 const ExpandMore = styled(IconButton, {
-  shouldForwardProp: (prop) =>
-    prop !== "theme" && prop !== "expand" && prop !== "drawerOpen",
-})(({ theme, expand, drawerOpen }: ExpandMoreProps) => ({
+  // shouldForwardProp: (prop) =>
+  //   prop !== "theme" && prop !== "expand" && prop !== "drawerOpen",
+  shouldForwardProp: (prop) => prop !== "expand" && prop !== "drawerOpen",
+})<ExpandMoreProps>(({ expand, drawerOpen, theme }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(-90deg)",
   marginLeft: "auto",
   color: theme.palette.secondary.dark,
@@ -64,7 +65,7 @@ const getInitials = (name: string): string => {
     .join(""); // Join the characters into a single string
 };
 const NavUser = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   const navigate = useNavigate();
 
   const { menuMaster } = useGetMenuMaster();
@@ -101,7 +102,7 @@ const NavUser = () => {
             disablePadding
             secondaryAction={
               <ExpandMore
-                theme={theme}
+                // theme={theme}
                 expand={open}
                 drawerOpen={drawerOpen}
                 id="basic-button"

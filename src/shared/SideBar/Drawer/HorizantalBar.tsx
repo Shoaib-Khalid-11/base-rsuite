@@ -3,7 +3,7 @@ import { AppMUIAppBar, AppMUIBox, AppMUIContainer } from "components/base";
 import { HEADER_HEIGHT } from "configs/config";
 import { useAppStore } from "hooks";
 import { cloneElement, ReactElement } from "react";
-import Navigation from "./Drawer/Content/Navigation";
+import Navigation from "./Content/Navigation";
 
 interface ElevationScrollProps {
   children: ReactElement;

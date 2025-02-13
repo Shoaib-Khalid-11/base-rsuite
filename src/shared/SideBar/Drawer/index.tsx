@@ -1,10 +1,11 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useGetMenuMaster, useToggleDrawerOpen } from "hooks/menu";
 import { useMemo } from "react";
-import DrawerContent from "./Drawer/Content";
+import DrawerContent from "./Content";
 import { AppMUIBox, AppMUIDrawer } from "components/base";
 import MiniDrawerStyled from "./MiniDrawerStyled";
 import { DRAWER_WIDTH } from "configs/config";
+import DrawerHeader from "./DrawerHeader";
 interface Props {
   window?: () => Window;
 }
@@ -17,6 +18,11 @@ export const MainSideBar: React.FC<Props> = ({ window }) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
   const drawerContent = useMemo(() => <DrawerContent />, []);
+  const drawerHeader = useMemo(
+    () => <DrawerHeader open={drawerOpen} />,
+    [drawerOpen]
+  );
+
   return (
     <>
       <AppMUIBox
@@ -26,7 +32,7 @@ export const MainSideBar: React.FC<Props> = ({ window }) => {
       >
         {!downLG ? (
           <MiniDrawerStyled variant="permanent" open={drawerOpen}>
-            {/* {drawerHeader} */}
+            {drawerHeader}
             {drawerContent}
           </MiniDrawerStyled>
         ) : (
@@ -47,7 +53,7 @@ export const MainSideBar: React.FC<Props> = ({ window }) => {
               },
             }}
           >
-            {/* {drawerHeader} */}
+            {drawerHeader}
             {drawerContent}
           </AppMUIDrawer>
         )}

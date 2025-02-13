@@ -1,13 +1,13 @@
-import { styled, Theme } from "@mui/material";
+import { styled } from "@mui/material";
 import Box from "@mui/material/Box";
 
 interface Props {
-  theme: Theme;
+  // theme: Theme;
   open: boolean;
 }
 const DrawerHeaderStyled = styled(Box, {
   shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }: Props) => ({
+})<Props>(({ theme, open }) => ({
   ...theme.mixins.toolbar,
   display: "flex",
   alignItems: "center",

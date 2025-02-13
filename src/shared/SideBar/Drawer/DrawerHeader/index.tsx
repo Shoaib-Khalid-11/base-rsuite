@@ -20,7 +20,7 @@ export const DrawerHeader: React.FC<Props> = ({ open }) => {
   return (
     <>
       <DrawerHeaderStyled
-        theme={theme}
+        // theme={theme}
         open={open}
         sx={{
           minHeight: isHorizontal ? "unset" : HEADER_HEIGHT,
@@ -36,7 +36,14 @@ export const DrawerHeader: React.FC<Props> = ({ open }) => {
             : 0,
         }}
       >
-        <LogoSection isIcon={!open} />
+        <LogoSection
+          isIcon={!open}
+          sx={{
+            width: open ? "94%" : "auto",
+            height: "auto",
+            // fontSize: open ? "94%" : "auto",
+          }}
+        />
       </DrawerHeaderStyled>
     </>
   );
