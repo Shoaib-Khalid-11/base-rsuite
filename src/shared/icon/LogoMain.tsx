@@ -1,5 +1,11 @@
+import { AppIcon } from "components/base";
+
 const LogoMain = () => {
-  return <div></div>;
+  return (
+    <>
+      <AppIcon icon={"la:react"} />
+    </>
+  );
 };
 
 export default LogoMain;

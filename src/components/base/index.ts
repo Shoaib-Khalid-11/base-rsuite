@@ -31,3 +31,4 @@ export * from "./AppMUIClickAwayListener";
 export * from "./AppMUIListItem";
 export * from "./AppMUIListItemAvatar";
 export * from "./AppMUIDrawer";
+export * from "./AppMUIButtonBase";
