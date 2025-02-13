@@ -6,16 +6,25 @@ import Header from "shared/SideBar/Header";
 import { MenuOrientation } from "types/config.model";
 import Drawer from "shared/SideBar/Drawer";
 import HorizontalBar from "shared/SideBar/Drawer/HorizantalBar";
+import { useEffect } from "react";
+import { useToggleDrawerOpen } from "hooks/menu";
 
 const SimpleLayout = () => {
   const theme = useTheme();
+  const downXL = useMediaQuery(theme.breakpoints.down("xl"));
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
+  const handlerDrawerOpen = useToggleDrawerOpen();
   const {
-    appStateValue: { menuOrientation },
+    appStateValue: { menuOrientation, miniDrawer },
   } = useAppStore();
   const isHorizontal =
     menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
-
+  useEffect(() => {
+    if (!miniDrawer) {
+      handlerDrawerOpen.mutate(!downXL);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [downXL]);
   return (
     <>
       <AppMUIBox sx={{ display: "flex", width: "100%" }}>
