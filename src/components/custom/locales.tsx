@@ -17,6 +17,7 @@ const localeMap: Record<
 const loadLocaleData = async (locale: I18n) => {
   try {
     return (await (localeMap[locale] || localeMap.en)()).default;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     console.error(`Failed to load locale ${locale}, falling back to English.`);
     return (await localeMap.en()).default;
@@ -41,7 +42,7 @@ export const Locales: React.FC<Props> = ({ children }) => {
   }
   return (
     <>
-      <IntlProvider locale={"zh"} defaultLocale="en" messages={messages}>
+      <IntlProvider locale={i18n} defaultLocale="en" messages={messages}>
         {children}
       </IntlProvider>
     </>

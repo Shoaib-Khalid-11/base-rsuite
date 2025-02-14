@@ -6,6 +6,7 @@ import router from "routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CustomThemeProvider from "theme";
 import Locales from "components/custom/locales";
+import ScrollTop from "components/custom/ScrollTop";
 
 function App() {
   const queryClient = new QueryClient();
@@ -16,7 +17,9 @@ function App() {
           <PersistGate loading={null} persistor={persistor}>
             <QueryClientProvider client={queryClient}>
               <Locales>
-                <RouterProvider router={router} />
+                <ScrollTop>
+                  <RouterProvider router={router} />
+                </ScrollTop>
               </Locales>
             </QueryClientProvider>
           </PersistGate>
