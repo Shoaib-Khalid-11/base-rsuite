@@ -6,10 +6,10 @@ import axios, {
 } from "axios";
 import { apiPrefix } from "configs/config";
 import { merge } from "lodash";
-import { ok, err, type Result } from "rusty-result-ts";
+// import { ok, err, type Result, Ok, Err } from "rusty-result-ts";
 
-type ApiResponse<T> = Result<T, unknown>;
-type ApiBaseResponse<T> = { data: T };
+export type ApiResponse<T> = T;
+// export type ApiBaseResponse
 
 const unauthorizedCode = [401];
 // const forbiddenCode = [403];
@@ -88,24 +88,23 @@ export class ApiBaseService {
    */
   private async request<T>(
     method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
-    path: string,
+    subPath: string,
     data?: unknown,
     configOverrides?: AxiosRequestConfig
   ): Promise<ApiResponse<T>> {
-    if (!path.startsWith("/")) path = `/${path}`;
+    if (!subPath.startsWith("/")) subPath = `/${subPath}`;
     const config = merge(this.getConfig(), configOverrides);
 
     try {
-      const response: AxiosResponse<ApiBaseResponse<T>> =
-        await this.api.request({
-          method,
-          url: path,
-          data,
-          ...config,
-        });
-      return ok(response.data.data);
+      const response: AxiosResponse = await this.api.request({
+        method,
+        url: subPath,
+        data,
+        ...config,
+      });
+      return response.data;
     } catch (error) {
-      return err(error);
+      return Promise.reject(error);
     }
   }
 

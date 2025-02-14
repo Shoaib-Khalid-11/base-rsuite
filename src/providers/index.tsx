@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Locales from "components/custom/locales";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Locales from "./locales";
 import ScrollTop from "components/custom/ScrollTop";
-import NotiStackProvider from "components/third-party/NotiStackProvider";
+import NotiStackProvider from "./NotiStackProvider";
 import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -25,6 +26,7 @@ const AppProvider_Wrapper: React.FC<AppProviderProps> = ({ children }) => {
                   <NotiStackProvider>{children}</NotiStackProvider>
                 </ScrollTop>
               </Locales>
+              <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
           </PersistGate>
         </Provider>

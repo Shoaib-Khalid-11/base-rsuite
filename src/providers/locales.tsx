@@ -33,7 +33,6 @@ export const Locales: React.FC<Props> = ({ children }) => {
   const {
     appStateValue: { i18n },
   } = useAppStore();
-  console.log(i18n);
   useEffect(() => {
     loadLocaleData(i18n).then(setMessages);
   }, [i18n]);
