@@ -8,18 +8,18 @@ import {
   AppMUIContainer,
   AppMUIGrid,
   AppMUIToolBar,
-} from "components/base";
-import { useAppStore } from "hooks";
+} from "global/components/base";
+import { useAppStore } from "global/hooks";
 // import NavBar from "shared/NavBar";
-import Header from "shared/SideBar/Header";
-import { MenuOrientation } from "types/config.model";
-import Drawer from "shared/SideBar/Drawer";
-import HorizontalBar from "shared/SideBar/Drawer/HorizantalBar";
+import Header from "global/shared/SideBar/Header";
+import { MenuOrientation } from "global/types/config.model";
+import Drawer from "global/shared/SideBar/Drawer";
+import HorizontalBar from "global/shared/SideBar/Drawer/HorizantalBar";
 import { useEffect } from "react";
-import { useToggleDrawerOpen } from "hooks/menu";
-import { GetProducts } from "apis/queries/Products.query";
-import { DRAWER_WIDTH } from "configs/config";
-import Loader from "components/custom/Loader";
+import { useToggleDrawerOpen } from "global/hooks/menu";
+import { GetProducts } from "global/queries/Products.query";
+import { DRAWER_WIDTH } from "global/configs/config";
+import Loader from "global/components/custom/Loader";
 
 const SimpleLayout = () => {
   const theme = useTheme();

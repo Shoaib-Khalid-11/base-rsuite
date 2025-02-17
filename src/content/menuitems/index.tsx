@@ -1,4 +1,4 @@
-import { NavItemType } from "types/menu.model";
+import { NavItemType } from "global/types/menu.model";
 import { FormattedMessage } from "react-intl";
 
 const menuItem: { items: NavItemType[] } = {
