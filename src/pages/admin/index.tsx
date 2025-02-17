@@ -1,11 +1,12 @@
 import { StyledEngineProvider } from "@mui/material";
 import {
+  AppMUIBox,
   AppMUICard,
   AppMUICardContent,
   AppMUICardHeader,
   AppMUICardMedia,
   AppMUIContainer,
-  AppMUIGrid,
+  AppMUIMasonry,
 } from "global/components/base";
 import Loader from "global/components/custom/Loader";
 import { useAppStore } from "global/hooks";
@@ -30,22 +31,19 @@ const Dashboard = () => {
         }}
       >
         <StyledEngineProvider injectFirst>
-          <AppMUIGrid container spacing={4}>
+          <AppMUIMasonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
             {productsResponse?.map((product) => {
               return (
-                <AppMUIGrid
-                  key={product.id}
-                  size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-                >
+                <AppMUIBox key={product.id}>
                   <AppMUICard>
                     <AppMUICardHeader title={product.title} />
                     <AppMUICardMedia component="img" image={product.image} />
                     <AppMUICardContent>{product.description}</AppMUICardContent>
                   </AppMUICard>
-                </AppMUIGrid>
+                </AppMUIBox>
               );
-            })}
-          </AppMUIGrid>
+            }) ?? []}
+          </AppMUIMasonry>
         </StyledEngineProvider>
       </AppMUIContainer>
     </>

@@ -56,7 +56,7 @@ const Header1 = () => {
   );
   const appBar: AppBarProps = {
     position: "fixed",
-    elevation: 0,
+    // elevation: 0,
     sx: {
       bgcolor: alpha(theme.palette.background.default, 0.8),
       backdropFilter: "blur(8px)",
