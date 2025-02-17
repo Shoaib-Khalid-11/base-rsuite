@@ -10,10 +10,16 @@ import {
   AppMUIMenuItem,
   AppMUIToolBar,
   AppMUIToolTip,
+  AppRouterLink,
 } from "global/components/base";
 import { useState } from "react";
 import LogoIcon from "global/shared/icon/LogoIcon";
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+  },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const NavBar = () => {
@@ -47,9 +53,15 @@ const NavBar = () => {
             >
               {pages.map((page) => {
                 return (
-                  <AppMUIButton key={page} sx={{ mr: 2 }}>
-                    {page}
-                  </AppMUIButton>
+                  <AppRouterLink to={page.url} key={page.title}>
+                    <AppMUIButton
+                    // component={Link}
+                    // to={page.url}
+                    // key={page.title}
+                    >
+                      {page.title}
+                    </AppMUIButton>
+                  </AppRouterLink>
                 );
               })}
             </AppMUIBox>
@@ -84,9 +96,13 @@ const NavBar = () => {
               >
                 {pages.map((page) => {
                   return (
-                    <AppMUIMenuItem key={page} onClick={handleCloseNavMenu}>
-                      {page}
-                    </AppMUIMenuItem>
+                    <AppRouterLink
+                      to={page.url}
+                      key={page.title}
+                      onClick={handleCloseNavMenu}
+                    >
+                      <AppMUIMenuItem>{page.title}</AppMUIMenuItem>
+                    </AppRouterLink>
                   );
                 })}
               </AppMUIMenu>

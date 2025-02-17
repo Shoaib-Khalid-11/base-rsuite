@@ -9,10 +9,10 @@ const localeMap: Record<
     default: Record<string, string> | Record<string, MessageFormatElement[]>;
   }>
 > = {
-  fr: () => import("utils/locales/fr.json"),
-  ro: () => import("utils/locales/ro.json"),
-  zh: () => import("utils/locales/zh.json"),
-  en: () => import("utils/locales/en.json"),
+  fr: () => import("global/utils/locales/fr.json"),
+  ro: () => import("global/utils/locales/ro.json"),
+  zh: () => import("global/utils/locales/zh.json"),
+  en: () => import("global/utils/locales/en.json"),
 };
 const loadLocaleData = async (locale: I18n) => {
   try {
