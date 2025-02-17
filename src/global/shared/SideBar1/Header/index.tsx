@@ -1,20 +1,20 @@
 import { alpha, AppBarProps, useMediaQuery, useTheme } from "@mui/material";
-import { useAppStore } from "global/hooks";
-import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
-import { MenuOrientation } from "global/types/config.model";
-import HeaderContent from "./HeaderContent";
-import { ReactNode, useMemo } from "react";
 import {
   AppIcon,
   AppMUIAppBar,
   AppMUIIconButton,
   AppMUIToolBar,
 } from "global/components/base";
-import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "global/configs/config";
-import AppBarStyled from "global/components/elements/AppBarStyled";
-// import AppBarStyled from "./AppBarStyled";
+import AppBarStyled1 from "global/components/elements/AppBarStyled1";
+import { DRAWER_WIDTH } from "global/configs/config";
+import { useAppStore } from "global/hooks";
+import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
+import { MenuOrientation } from "global/types/config.model";
+import { ReactNode, useMemo } from "react";
+import HeaderContent1 from "./HeaderContent1";
+// import { useMemo } from "react";
 
-const Header = () => {
+const Header1 = () => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const {
@@ -26,11 +26,7 @@ const Header = () => {
   const isHorizontal =
     menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
   // header content
-  const headerContent = useMemo(() => <HeaderContent />, []);
-  // const iconBackColorOpen =
-  //   mode === ThemeMode.DARK ? "background.paper" : "secondary.light";
-  // const iconBackColor =
-  //   mode === ThemeMode.DARK ? "background.default" : "secondary.light";
+  const headerContent = useMemo(() => <HeaderContent1 />, []);
   const mainHeader: ReactNode = (
     <AppMUIToolBar sx={{ px: { xs: 2, sm: 4.5, lg: 8 } }}>
       {!isHorizontal ? (
@@ -69,18 +65,16 @@ const Header = () => {
         ? "100%"
         : {
             xs: "100%",
-            lg: drawerOpen
-              ? `calc(100% - ${DRAWER_WIDTH}px)`
-              : `calc(100% - ${MINI_DRAWER_WIDTH}px)`,
+            lg: drawerOpen ? `calc(100% - ${DRAWER_WIDTH}px)` : `100%`,
           },
     },
   };
   return (
     <>
       {!downLG ? (
-        <AppBarStyled open={drawerOpen} {...appBar}>
+        <AppBarStyled1 open={drawerOpen} {...appBar}>
           {mainHeader}
-        </AppBarStyled>
+        </AppBarStyled1>
       ) : (
         <AppMUIAppBar {...appBar}>{mainHeader}</AppMUIAppBar>
       )}
@@ -88,4 +82,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header1;
