@@ -12,20 +12,12 @@ import {
 } from "../base";
 
 const YoutubeCard: React.FC<YoutubeCardModel> = ({
-  videoId,
   title,
   channelTitle,
-  channelId,
-  channelHandle,
   channelThumbnail,
-  description,
   viewCount,
   publishedTimeText,
-  publishDate,
-  publishedAt,
-  lengthText,
   thumbnail,
-  richThumbnail,
 }) => {
   return (
     <>
@@ -34,7 +26,7 @@ const YoutubeCard: React.FC<YoutubeCardModel> = ({
           <AppMUICardMedia
             component="img"
             image={thumbnail[0].url}
-            alt={title}
+            // alt={title}
           />
           <AppMUICardContent>
             <AppMUIStack spacing={2} direction="row">
