@@ -128,7 +128,7 @@ const NavItem = ({ item, level, isParents = false }: Props) => {
                         bgcolor:
                           mode === ThemeMode.DARK
                             ? "secondary.dark"
-                            : "primary.main",
+                            : "transparent",
                         "&:hover": {
                           bgcolor:
                             mode === ThemeMode.DARK

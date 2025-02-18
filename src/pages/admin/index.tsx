@@ -10,7 +10,7 @@ import {
 } from "global/components/base";
 import Loader from "global/components/custom/Loader";
 import { useAppStore } from "global/hooks";
-import { GetProducts } from "global/queries/Products.query";
+import { GetProducts } from "global/apis/queries/Products.query";
 const Dashboard = () => {
   const {
     appStateValue: { container },
