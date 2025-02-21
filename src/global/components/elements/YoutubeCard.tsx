@@ -21,11 +21,12 @@ const YoutubeCard: React.FC<YoutubeCardModel> = ({
 }) => {
   return (
     <>
-      <AppMUICard sx={{ maxWidth: 460 }}>
+      <AppMUICard sx={{ width: 400 }}>
         <AppMUICardActionArea>
           <AppMUICardMedia
             component="img"
             image={thumbnail[0].url}
+            sx={{ width: "100%", height: "100%", objectFit: "cover" }}
             // alt={title}
           />
           <AppMUICardContent>

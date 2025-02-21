@@ -1,0 +1,94 @@
+import { Theme, useMediaQuery } from "@mui/material";
+import { useAppStore } from "global/hooks";
+import DrawerHeader from "global/shared/DrawerHeader";
+import { MenuOrientation } from "global/types/config.model";
+import {
+  AppIcon,
+  AppMUIBox,
+  AppMUIButton,
+  AppMUIIconButton,
+  AppMUIMenu,
+  AppMUIMenuItem,
+  AppRouterLink,
+} from "../base";
+import DebouncedSearchBar from "./DebouncedSearchBar";
+import { useState } from "react";
+const pages = [
+  {
+    title: "Home",
+    url: "/",
+  },
+];
+const YoutubeHeaderContentWithSideBars = () => {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const {
+    appStateValue: { menuOrientation },
+  } = useAppStore();
+
+  const downLG = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  return (
+    <>
+      {menuOrientation === MenuOrientation.HORIZONTAL && !downLG && (
+        <DrawerHeader open={true} />
+      )}
+      <AppMUIBox sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+        {pages.map((page) => {
+          return (
+            <AppRouterLink to={page.url} key={page.title}>
+              <AppMUIButton>{page.title}</AppMUIButton>
+            </AppRouterLink>
+          );
+        })}
+      </AppMUIBox>
+      <AppMUIBox sx={{ width: "100%", ml: 1 }} />
+      {/* {downLG && <AppMUIBox sx={{ width: "100%", ml: 1 }} />} */}
+      <AppMUIBox sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
+        <AppMUIIconButton
+          size="large"
+          edge="end"
+          color="primary"
+          onClick={handleOpenNavMenu}
+        >
+          <AppIcon icon="la:bars" />
+        </AppMUIIconButton>
+        <AppMUIMenu
+          id="menu-appbar"
+          anchorEl={anchorElNav}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          open={Boolean(anchorElNav)}
+          onClose={handleCloseNavMenu}
+        >
+          {pages.map((page) => {
+            return (
+              <AppRouterLink
+                to={page.url}
+                key={page.title}
+                onClick={handleCloseNavMenu}
+              >
+                <AppMUIMenuItem>{page.title}</AppMUIMenuItem>
+              </AppRouterLink>
+            );
+          })}
+        </AppMUIMenu>
+      </AppMUIBox>
+      <DebouncedSearchBar />
+    </>
+  );
+};
+
+export default YoutubeHeaderContentWithSideBars;

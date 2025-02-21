@@ -9,6 +9,11 @@ export class YoutubeService extends ApiBaseService {
   }
   public getHome(): Promise<ApiResponse<unknown[]>> {
     return this.get("/home", {
+      params: {
+        token: "",
+        geo: "",
+        lang: "",
+      },
       headers: HEADERS,
     });
   }

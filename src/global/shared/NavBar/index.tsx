@@ -14,10 +14,15 @@ import {
 } from "global/components/base";
 import { useState } from "react";
 import LogoIcon from "global/shared/icon/LogoIcon";
+import { yt_home_path } from "global/routes/connections";
 const pages = [
   {
     title: "Dashboard",
     url: "/dashboard",
+  },
+  {
+    title: "Youtube",
+    url: yt_home_path(),
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];

@@ -9,7 +9,7 @@ const DashboardRoutes = {
       element: <DashboardLayout />,
       children: [
         {
-          path: "/dashboard",
+          path: "dashboard",
           element: <Dashboard />,
         },
       ],
