@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Locales from "./locales";
-import ScrollTop from "global/components/custom/ScrollTop";
+import ScrollTop from "global/components/elements/ScrollTop";
 import NotiStackProvider from "./NotiStackProvider";
 import React from "react";
 import { Provider } from "react-redux";

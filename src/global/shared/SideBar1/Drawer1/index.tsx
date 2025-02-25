@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIDrawer } from "global/components/base";
+import { AppMUIBox, AppMUIDrawer } from "global/components/elements/base";
 import DrawerStyled1 from "./DrawerStyled1";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
 import { DRAWER_WIDTH } from "global/configs/config";

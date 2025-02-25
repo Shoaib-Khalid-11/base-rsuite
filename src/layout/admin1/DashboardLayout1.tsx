@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIToolBar } from "global/components/base";
+import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import Header1 from "global/shared/SideBar1/Header";

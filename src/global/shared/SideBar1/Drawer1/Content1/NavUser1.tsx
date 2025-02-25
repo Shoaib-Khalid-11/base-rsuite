@@ -15,7 +15,7 @@ import {
   AppMUIListItemText,
   AppMUIMenu,
   AppMUIMenuItem,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { useGetMenuMaster } from "global/hooks/menu";
 import { MouseEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";

@@ -3,7 +3,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import SimpleBar, { Props } from "simplebar-react";
 import { MUIStyledCommonProps } from "@mui/system";
 import { ReactNode } from "react";
-import { AppMUIBox } from "global/components/base";
+import { AppMUIBox } from "global/components/elements/base";
 
 const RootStyle = styled(BrowserView)({
   flexGrow: 1,

@@ -1,5 +1,5 @@
 import { SxProps } from "@mui/material";
-import { AppMUIButtonBase } from "global/components/base";
+import { AppMUIButtonBase } from "global/components/elements/base";
 import { To } from "react-router-dom";
 import LogoIcon from "./LogoIcon";
 import LogoMain from "./LogoMain";

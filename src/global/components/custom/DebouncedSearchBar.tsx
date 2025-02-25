@@ -1,7 +1,11 @@
 import { useRef, useState } from "react";
 import { debounce } from "lodash";
-import { AppIcon, AppMUIBox, AppMUIIconButton } from "global/components/base";
-import AppMUITextField from "global/components/base/AppMUITextField";
+import {
+  AppIcon,
+  AppMUIBox,
+  AppMUIIconButton,
+} from "global/components/elements/base";
+import AppMUITextField from "global/components/elements/base/AppMUITextField";
 import { InputAdornment } from "@mui/material";
 const DebouncedSearchBar = () => {
   const [showSearch, setShowSearch] = useState(false);

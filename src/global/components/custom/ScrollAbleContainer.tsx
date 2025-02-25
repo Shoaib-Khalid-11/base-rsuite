@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 // import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import { AppMUIStack, AppMUIIconButton, AppIcon } from "../base";
+import { AppMUIStack, AppMUIIconButton, AppIcon } from "../elements/base";
 import { ButtonProps, Stack, StackProps } from "@mui/material";
 
 interface ScrollableContainerProps {

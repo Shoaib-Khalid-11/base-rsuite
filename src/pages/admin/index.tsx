@@ -7,7 +7,7 @@ import {
   AppMUICardMedia,
   AppMUIContainer,
   AppMUIMasonry,
-} from "global/components/base";
+} from "global/components/elements/base";
 import Loader from "global/components/custom/Loader";
 import { useAppStore } from "global/hooks";
 import { GetProducts } from "global/apis/queries/Products.query";

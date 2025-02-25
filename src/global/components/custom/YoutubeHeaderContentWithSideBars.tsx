@@ -10,7 +10,7 @@ import {
   AppMUIMenu,
   AppMUIMenuItem,
   AppRouterLink,
-} from "../base";
+} from "../elements/base";
 import DebouncedSearchBar from "./DebouncedSearchBar";
 import { useState } from "react";
 const pages = [

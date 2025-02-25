@@ -4,14 +4,14 @@ import {
   AppMUIAppBar,
   AppMUIIconButton,
   AppMUIToolBar,
-} from "global/components/base";
-import AppBarStyled1 from "global/components/elements/AppBarStyled1";
+} from "global/components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
 import { MenuOrientation } from "global/types/config.model";
 import { ReactNode, useMemo } from "react";
-import HeaderContentWithSideBars from "./HeaderContentWithSideBars";
+import ChildrenNode from "../elements/ChildrenNode";
+import AppBarStyled1 from "../elements/AppBarStyled1";
 interface HeaderProps {
   headerContent?: ReactNode; // Custom content for the header
 }
@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ headerContent }) => {
     menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
   // header content
   const headerContentMemo: ReactNode | undefined = useMemo(
-    () => <HeaderContentWithSideBars children={headerContent} />,
+    () => <ChildrenNode children={headerContent} />,
     [headerContent]
   );
   const mainHeader: ReactNode = (

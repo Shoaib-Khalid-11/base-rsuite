@@ -11,7 +11,7 @@ import {
   AppMUIToolBar,
   AppMUIToolTip,
   AppRouterLink,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { useState } from "react";
 import LogoIcon from "global/shared/icon/LogoIcon";
 import { yt_home_path } from "global/routes/connections";

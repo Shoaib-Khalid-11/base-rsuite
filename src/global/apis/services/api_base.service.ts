@@ -6,23 +6,20 @@ import axios, {
 } from "axios";
 import { apiPrefix } from "global/configs/config";
 import { merge } from "lodash";
-// import { ok, err, type Result, Ok, Err } from "rusty-result-ts";
 
 export type ApiResponse<T> = T;
-// export type ApiBaseResponse
 
 const unauthorizedCode = [401];
 // const forbiddenCode = [403];
 
 export class ApiBaseService {
   protected api: AxiosInstance;
-  protected headers: Record<string, string>;
+  protected headers: AxiosHeaders;
   protected urlBase: string;
 
-  constructor(basePath?: string) {
+  constructor(basePath?: string, defaultHeaders?: AxiosHeaders) {
     this.urlBase = basePath ?? apiPrefix;
-    this.headers = {};
-
+    this.headers = new AxiosHeaders(defaultHeaders); // Initialize with provided headers or empty
     this.api = axios.create({
       baseURL: this.urlBase,
       //   timeout: 10000,
@@ -31,17 +28,18 @@ export class ApiBaseService {
     // Attach Interceptors
     this.setupInterceptors();
   }
-
   /**
    * Setup request & response interceptors.
    */
   private setupInterceptors() {
     this.api.interceptors.request.use((config) => {
       const token = localStorage.getItem("token");
+      config.headers = new AxiosHeaders({
+        ...config.headers,
+        ...this.headers,
+      });
       if (token) {
         config.headers = new AxiosHeaders({
-          ...config.headers,
-          ...this.headers,
           Authorization: `Bearer ${token}`,
         });
       }

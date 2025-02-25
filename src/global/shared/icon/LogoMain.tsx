@@ -1,4 +1,4 @@
-import { AppIcon } from "global/components/base";
+import { AppIcon } from "global/components/elements/base";
 
 const LogoMain = () => {
   return (

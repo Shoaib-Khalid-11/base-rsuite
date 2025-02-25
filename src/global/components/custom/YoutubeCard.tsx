@@ -9,7 +9,7 @@ import {
   AppMUIDivider,
   AppMUIStack,
   AppMUITypography,
-} from "../base";
+} from "../elements/base";
 
 const YoutubeCard: React.FC<YoutubeCardModel> = ({
   title,

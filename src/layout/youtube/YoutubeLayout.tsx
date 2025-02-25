@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIToolBar } from "global/components/base";
+import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import { MenuOrientation } from "global/types/config.model";
@@ -9,7 +9,7 @@ import Drawer from "global/shared/Drawer1/index";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useToggleDrawerOpen } from "global/hooks/menu";
-import Header from "global/components/elements/Header";
+import Header from "global/components/custom/Header";
 import YoutubeHeaderContentWithSideBars from "global/components/custom/YoutubeHeaderContentWithSideBars";
 
 const YoutubeLayout = () => {

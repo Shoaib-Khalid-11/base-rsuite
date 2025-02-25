@@ -10,7 +10,7 @@ import {
   AppMUIListItemText,
   AppMUIPaper,
   AppMUITypography,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { useAppStore } from "global/hooks";
 import { useGetMenuMaster } from "global/hooks/menu";
 import React, {

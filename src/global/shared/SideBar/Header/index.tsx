@@ -9,7 +9,7 @@ import {
   AppMUIAppBar,
   AppMUIIconButton,
   AppMUIToolBar,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "global/configs/config";
 import AppBarStyled from "global/components/elements/AppBarStyled";
 // import AppBarStyled from "./AppBarStyled";

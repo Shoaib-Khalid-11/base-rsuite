@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIToolBar } from "global/components/base";
+import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { useAppStore } from "global/hooks";
 // import NavBar from "shared/NavBar";
 import Header from "global/shared/SideBar/Header";

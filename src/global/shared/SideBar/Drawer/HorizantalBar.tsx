@@ -3,7 +3,7 @@ import {
   AppMUIAppBar,
   AppMUIBox,
   AppMUIContainer,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { HEADER_HEIGHT } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import { cloneElement, ReactElement } from "react";

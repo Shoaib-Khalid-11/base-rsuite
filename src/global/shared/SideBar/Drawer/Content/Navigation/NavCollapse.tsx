@@ -26,7 +26,7 @@ import {
   AppMUIMenu,
   AppMUIPaper,
   AppMUITypography,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { MenuOrientation, ThemeMode } from "global/types/config.model";
 import Dot from "global/components/custom/Dot";
 import Transitions from "global/components/animation/Transitions";

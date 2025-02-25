@@ -4,7 +4,7 @@ import {
   AppMUIAppBar,
   AppMUIIconButton,
   AppMUIToolBar,
-} from "global/components/base";
+} from "global/components/elements/base";
 import AppBarStyled1 from "global/components/elements/AppBarStyled1";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";

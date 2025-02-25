@@ -5,7 +5,7 @@ import {
   AppMUIGrow,
   AppMUISlide,
   AppMUIZoom,
-} from "global/components/base";
+} from "global/components/elements/base";
 import React, { ExoticComponent, ReactElement, Ref } from "react";
 interface Props {
   children?: ReactElement;

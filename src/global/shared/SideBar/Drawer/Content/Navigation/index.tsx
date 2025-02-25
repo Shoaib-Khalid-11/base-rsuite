@@ -3,7 +3,7 @@ import {
   AppMUIBox,
   AppMUIDivider,
   AppMUITypography,
-} from "global/components/base";
+} from "global/components/elements/base";
 import { HORIZONTAL_MAX_ITEM } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import { useGetMenuMaster } from "global/hooks/menu";

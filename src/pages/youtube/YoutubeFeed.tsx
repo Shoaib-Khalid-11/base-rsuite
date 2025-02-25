@@ -1,7 +1,7 @@
 import { GetYTHome } from "global/apis/queries/youtube.query";
-import { AppMUIChip, AppMUIMasonry } from "global/components/base";
+import { AppMUIChip, AppMUIMasonry } from "global/components/elements/base";
 import ScrollableContainer from "global/components/custom/ScrollAbleContainer";
-import YoutubeCard from "global/components/elements/YoutubeCard";
+import YoutubeCard from "global/components/custom/YoutubeCard";
 
 const YoutubeFeed = () => {
   const { YTHomeResponse } = GetYTHome();

@@ -10,7 +10,7 @@ import {
   AppMUIListItemText,
   AppMUITypography,
   AppRouterLink,
-} from "global/components/base";
+} from "global/components/elements/base";
 import Dot from "global/components/custom/Dot";
 import { useAppStore } from "global/hooks";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";

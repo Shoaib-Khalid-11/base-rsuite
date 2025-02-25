@@ -1,5 +1,5 @@
 import { CSSObject } from "@mui/material";
-import { AppMUIBox } from "global/components/base";
+import { AppMUIBox } from "global/components/elements/base";
 interface Props {
   color?: string;
   size?: number;

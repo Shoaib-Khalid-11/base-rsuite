@@ -1,5 +1,5 @@
 import { Theme, useMediaQuery } from "@mui/material";
-import { AppMUIBox } from "global/components/base";
+import { AppMUIBox } from "global/components/elements/base";
 import DebouncedSearchBar from "global/components/custom/DebouncedSearchBar";
 import { useAppStore } from "global/hooks";
 import DrawerHeader from "global/shared/SideBar/Drawer/DrawerHeader";
