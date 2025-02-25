@@ -21,14 +21,9 @@ const YoutubeCard: React.FC<YoutubeCardModel> = ({
 }) => {
   return (
     <>
-      <AppMUICard sx={{ width: 400 }}>
+      <AppMUICard>
         <AppMUICardActionArea>
-          <AppMUICardMedia
-            component="img"
-            image={thumbnail[0].url}
-            sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-            // alt={title}
-          />
+          <AppMUICardMedia component="img" image={thumbnail[0].url} />
           <AppMUICardContent>
             <AppMUIStack spacing={2} direction="row">
               <AppMUIBox>
@@ -49,9 +44,11 @@ const YoutubeCard: React.FC<YoutubeCardModel> = ({
                 <AppMUITypography variant="body2">
                   {channelTitle}
                 </AppMUITypography>
-                <AppMUITypography variant="caption">
-                  {viewCount} views . {publishedTimeText}
-                </AppMUITypography>
+                {viewCount && publishedTimeText && (
+                  <AppMUITypography variant="caption">
+                    {viewCount} views . {publishedTimeText}
+                  </AppMUITypography>
+                )}
               </AppMUIBox>
             </AppMUIStack>
           </AppMUICardContent>

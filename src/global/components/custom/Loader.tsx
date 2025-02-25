@@ -14,7 +14,7 @@ const Loader = () => {
   return (
     <>
       <LoaderWrapper>
-        <LinearProgress color="primary" sx={{ height: 4 }} />
+        <LinearProgress color="primary" sx={{ height: 6 }} />
       </LoaderWrapper>
     </>
   );
