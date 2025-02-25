@@ -16,10 +16,12 @@ const unauthorizedCode = [401];
 
 export class ApiBaseService {
   protected api: AxiosInstance;
+  protected headers: Record<string, string>;
   protected urlBase: string;
 
   constructor(basePath?: string) {
     this.urlBase = basePath ?? apiPrefix;
+    this.headers = {};
 
     this.api = axios.create({
       baseURL: this.urlBase,
@@ -39,6 +41,7 @@ export class ApiBaseService {
       if (token) {
         config.headers = new AxiosHeaders({
           ...config.headers,
+          ...this.headers,
           Authorization: `Bearer ${token}`,
         });
       }

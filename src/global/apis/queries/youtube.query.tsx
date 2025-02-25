@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { YoutubeService } from "global/services/youtube.service";
 import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
+import { YoutubeService } from "../services";
 const youtubeServices = new YoutubeService();
 export const GetYTHome = () => {
   const { data, error, isError, isSuccess, isLoading } = useQuery<unknown[]>({

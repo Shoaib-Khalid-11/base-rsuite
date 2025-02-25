@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
-import { ProductsService } from "global/services/products.service";
 import { Product } from "global/types/products.model";
+import { ProductsService } from "../services";
 const productsServices = new ProductsService();
 export const GetProducts = () => {
   const { data, error, isError, isSuccess, isLoading } = useQuery<Product[]>({
