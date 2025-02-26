@@ -13,7 +13,7 @@ export type Thumbnail = {
 //   width: number;
 //   height: number;
 // };
-export interface YoutubeCardModel {
+export interface YoutubeVideoCardModel {
   type: string;
   videoId: string;
   title: string;
@@ -29,4 +29,15 @@ export interface YoutubeCardModel {
   lengthText: string;
   thumbnail: Thumbnail[];
   richThumbnail: Thumbnail[];
+}
+export interface YoutubeShortsCardModel {
+  isOriginalAspectRatio: boolean;
+  params: string;
+  playerParams: string;
+  sequenceParams: string;
+  thumbnail: Thumbnail[];
+  title: string;
+  type: string;
+  videoId: string;
+  viewCountText: string;
 }

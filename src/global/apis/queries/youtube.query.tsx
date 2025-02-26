@@ -1,6 +1,6 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { YoutubeService } from "../services";
 const youtubeServices = new YoutubeService();
 export const GetYTHome = () => {
@@ -23,18 +23,21 @@ export const GetYTHome = () => {
   };
 };
 export const GetYTHomeInfiniteScroll = () => {
+  const [selectedFilter, setSelectedFilter] = useState<string>("");
+
   const {
     data,
     isLoading,
     isError,
     error,
+    refetch,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ["yt-home-infinite-scroll"],
+    queryKey: ["yt-home-infinite-scroll", selectedFilter],
     queryFn: async ({ pageParam = "" }) => {
-      const response = await youtubeServices.getHome(pageParam);
+      const response = await youtubeServices.getHome(pageParam, selectedFilter);
       return {
         data: response.data,
         nextPage: response.continuation,
@@ -48,6 +51,10 @@ export const GetYTHomeInfiniteScroll = () => {
   if (isError) {
     enqueueSnackbar(`Error: ${error.message}`, { variant: "error" });
   }
+  const handleFilterClick = (filter: string) => {
+    setSelectedFilter(filter);
+    refetch(); // Refetch data when filter changes
+  };
   return {
     YTHomeInfiniteScrollResponse: data,
     YTHomeInfiniteScrollError: error,
@@ -55,5 +62,7 @@ export const GetYTHomeInfiniteScroll = () => {
     YTHomeInfiniteScrollFetchNextPage: fetchNextPage,
     YTHomeInfiniteScrollHasNextPage: hasNextPage,
     YTHomeInfiniteScrollIsFetchingNextPage: isFetchingNextPage,
+    handleFilterClick,
+    selectedFilter,
   };
 };

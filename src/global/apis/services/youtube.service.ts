@@ -11,12 +11,13 @@ export class YoutubeService extends ApiBaseService {
   }
   public getHome(
     token?: string,
+    filters?: string,
     geo?: string,
     lang?: string
   ): Promise<ApiResponse<any>> {
     return this.get("/home", {
       params: {
-        token: token,
+        token: token ? token : filters ? filters : "",
         geo: geo,
         lang: lang,
       },

@@ -1,4 +1,4 @@
-import { YoutubeCardModel } from "global/types/youtubeCard.model";
+import { YoutubeVideoCardModel } from "global/types/youtubeCard.model";
 import {
   AppMUIAvatar,
   AppMUIBox,
@@ -11,7 +11,7 @@ import {
   AppMUITypography,
 } from "../elements/base";
 
-const YoutubeCard: React.FC<YoutubeCardModel> = ({
+const YoutubeVideoCard: React.FC<YoutubeVideoCardModel> = ({
   title,
   channelTitle,
   channelThumbnail,
@@ -21,7 +21,7 @@ const YoutubeCard: React.FC<YoutubeCardModel> = ({
 }) => {
   return (
     <>
-      <AppMUICard>
+      <AppMUICard sx={{ height: "100%" }}>
         <AppMUICardActionArea>
           <AppMUICardMedia component="img" image={thumbnail[0].url} />
           <AppMUICardContent>
@@ -58,4 +58,4 @@ const YoutubeCard: React.FC<YoutubeCardModel> = ({
   );
 };
 
-export default YoutubeCard;
+export default YoutubeVideoCard;
