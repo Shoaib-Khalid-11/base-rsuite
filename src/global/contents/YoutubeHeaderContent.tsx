@@ -1,5 +1,5 @@
 import { Theme, useMediaQuery } from "@mui/material";
-import { useAppStore } from "global/hooks";
+import { useAppStore, useYoutubeStoreHook } from "global/hooks";
 import DrawerHeader from "global/shared/DrawerHeader";
 import { MenuOrientation } from "global/types";
 import {
@@ -13,13 +13,21 @@ import {
 } from "../components/elements/base";
 import { useState } from "react";
 import YouTubeSearchBar from "../components/custom/YoutubeSearchBar";
-const pages = [
-  {
-    title: "Home",
-    url: "/",
-  },
-];
 export const YoutubeHeaderContent = () => {
+  const { setYoutubeLinkReducer } = useYoutubeStoreHook();
+  const pages = [
+    {
+      title: "Home",
+      url: "/",
+    },
+    {
+      title: "Youtube",
+      // url: yt_home_path(),
+      onClick: () => {
+        setYoutubeLinkReducer("");
+      },
+    },
+  ];
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const {
@@ -67,13 +75,21 @@ export const YoutubeHeaderContent = () => {
         >
           {pages.map((page) => {
             return (
-              <AppRouterLink
-                to={page.url}
-                key={page.title}
-                onClick={handleCloseNavMenu}
-              >
-                <AppMUIMenuItem>{page.title}</AppMUIMenuItem>
-              </AppRouterLink>
+              <>
+                {page.url ? (
+                  <AppRouterLink
+                    to={page.url}
+                    key={page.title}
+                    onClick={handleCloseNavMenu}
+                  >
+                    <AppMUIMenuItem>{page.title}</AppMUIMenuItem>
+                  </AppRouterLink>
+                ) : (
+                  <AppMUIMenuItem key={page.title} onClick={page.onClick}>
+                    {page.title}
+                  </AppMUIMenuItem>
+                )}
+              </>
             );
           })}
         </AppMUIMenu>
@@ -82,9 +98,17 @@ export const YoutubeHeaderContent = () => {
       <AppMUIBox sx={{ display: { xs: "none", sm: "flex" } }}>
         {pages.map((page) => {
           return (
-            <AppRouterLink to={page.url} key={page.title}>
-              <AppMUIButton>{page.title}</AppMUIButton>
-            </AppRouterLink>
+            <>
+              {page.url ? (
+                <AppRouterLink to={page.url} key={page.title}>
+                  <AppMUIButton>{page.title}</AppMUIButton>
+                </AppRouterLink>
+              ) : (
+                <AppMUIButton key={page.title} onClick={page.onClick}>
+                  {page.title}
+                </AppMUIButton>
+              )}
+            </>
           );
         })}
       </AppMUIBox>

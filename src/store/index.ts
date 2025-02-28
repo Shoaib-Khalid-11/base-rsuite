@@ -1,10 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { generalSlice } from "./reduxReducer";
 import { useDispatch, useSelector } from "react-redux";
 import persistStore from "redux-persist/es/persistStore";
-import { appSlice } from "./reduxReducer/app.slice";
+import { appSlice, generalSlice, youtubeSlice } from "./reduxReducer";
 
 export const store = configureStore({
   reducer: persistReducer(
@@ -15,6 +14,7 @@ export const store = configureStore({
     combineReducers({
       general: generalSlice.reducer,
       app: appSlice.reducer,
+      youtube: youtubeSlice.reducer,
     })
   ),
   middleware: (getDefaultMiddleware) =>
