@@ -9,7 +9,7 @@ import {
   AppMUITypography,
 } from "../elements/base";
 
-const YoutubeShortsCard: React.FC<YoutubeShortsCardModel> = ({
+export const YoutubeShortsCard: React.FC<YoutubeShortsCardModel> = ({
   title,
   thumbnail,
   viewCountText,

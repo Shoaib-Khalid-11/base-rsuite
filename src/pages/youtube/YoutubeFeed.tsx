@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetYTHomeInfiniteScroll } from "global/apis/queries/youtube.query";
 import {
   AppIcon,
@@ -34,30 +35,39 @@ const YoutubeFeed = () => {
       {YTHomeInfiniteScrollLoading ||
         (YTHomeInfiniteScrollIsFetchingNextPage && <Loader />)}
 
-      {YTHomeInfiniteScrollResponse?.pages[0].filters && (
-        <ScrollableContainer>
-          {YTHomeInfiniteScrollResponse?.pages?.map((page) =>
-            page.filters?.map((filter) => (
-              <AppMUIChip
-                key={filter.filter}
-                label={filter.filter}
-                onClick={() => handleFilterClick(filter.continuation)}
-                color={
-                  selectedFilter === filter.continuation ? "primary" : "default"
-                }
-                clickable
-              />
-            ))
-          )}
-        </ScrollableContainer>
-      )}
+      {YTHomeInfiniteScrollResponse?.pages?.length &&
+        YTHomeInfiniteScrollResponse.pages[0]?.filters && (
+          <ScrollableContainer>
+            {YTHomeInfiniteScrollResponse.pages?.map((page) =>
+              page.filters?.map((filter: any) => (
+                <AppMUIChip
+                  key={filter.filter}
+                  label={filter.filter}
+                  onClick={() => handleFilterClick(filter.continuation)}
+                  color={
+                    selectedFilter === filter.continuation
+                      ? "primary"
+                      : "default"
+                  }
+                  clickable
+                />
+              ))
+            )}
+          </ScrollableContainer>
+        )}
 
       <AppMUIGrid container spacing={3}>
         {YTHomeInfiniteScrollResponse?.pages?.flatMap((page) =>
-          page.data.map((item) => (
+          page.data.map((item: any) => (
             <>
               {item.type === "video" ? (
-                <YoutubeVideoCard key={item.videoId!} {...item} />
+                <>
+                  {item ? (
+                    <YoutubeVideoCard key={item.videoId!} {...item} />
+                  ) : (
+                    []
+                  )}
+                </>
               ) : item.type === "shorts_listing" ? (
                 <>
                   <AppMUIGrid size={12} key={item.videoId!}>
@@ -79,7 +89,7 @@ const YoutubeFeed = () => {
                       </AppMUITypography>
                     </AppMUIStack>
                     <ScrollableContainer>
-                      {item?.data?.map((shorts) => {
+                      {item?.data?.map((shorts: any) => {
                         return (
                           <YoutubeShortsCard
                             key={shorts.videoId!}
@@ -112,12 +122,18 @@ const YoutubeFeed = () => {
                         </AppMUITypography>
                       </AppMUIStack>
                     </AppMUIGrid>
-                    {item?.data?.map((Trending) => {
+                    {item?.data?.map((Trending: any) => {
                       return (
-                        <YoutubeVideoCard
-                          key={Trending.videoId!}
-                          {...Trending}
-                        />
+                        <>
+                          {Trending ? (
+                            <YoutubeVideoCard
+                              key={Trending.videoId!}
+                              {...Trending}
+                            />
+                          ) : (
+                            []
+                          )}
+                        </>
                       );
                     })}
                   </AppMUIGrid>

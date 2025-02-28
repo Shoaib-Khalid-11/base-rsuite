@@ -7,7 +7,13 @@ interface Props {
   sx?: CSSObject;
   componentDiv?: boolean;
 }
-const Dot: React.FC<Props> = ({ color, size, variant, sx, componentDiv }) => {
+export const Dot: React.FC<Props> = ({
+  color,
+  size,
+  variant,
+  sx,
+  componentDiv,
+}) => {
   return (
     <>
       <AppMUIBox

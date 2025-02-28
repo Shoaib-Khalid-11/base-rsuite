@@ -2,15 +2,14 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
-import Drawer from "global/shared/Drawer1/index";
 
 // import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useToggleDrawerOpen } from "global/hooks/menu";
-import Header from "global/components/custom/Header";
-import YoutubeHeaderContentWithSideBars from "global/components/custom/YoutubeHeaderContentWithSideBars";
 import { MenuOrientation } from "global/types";
+import { Header, SideBarDrawer } from "global/components/custom";
+import { YoutubeSideBarContent, YoutubeHeaderContent } from "global/contents";
 
 const YoutubeLayout = () => {
   const theme = useTheme();
@@ -30,8 +29,13 @@ const YoutubeLayout = () => {
   }, [downXL]);
   return (
     <AppMUIBox sx={{ display: "flex", width: "100%" }}>
-      <Header headerContent={<YoutubeHeaderContentWithSideBars />} />
-      <Drawer />
+      <Header
+        headerContent={<YoutubeHeaderContent />}
+        ToolBarProps={{
+          sx: { justifyContent: "space-between" },
+        }}
+      />
+      <SideBarDrawer DrawerContent={<YoutubeSideBarContent />} />
       <AppMUIBox
         component="main"
         sx={{

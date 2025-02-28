@@ -41,3 +41,4 @@ export * from "./AppMUIGrid";
 export * from "./AppMUIMasonry";
 export * from "./AppMUIStack";
 export * from "./AppMUICardActionArea";
+export * from "./AppMUIInputBase";

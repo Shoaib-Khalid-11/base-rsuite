@@ -1,4 +1,10 @@
-import { alpha, AppBarProps, useMediaQuery, useTheme } from "@mui/material";
+import {
+  alpha,
+  AppBarProps,
+  useMediaQuery,
+  useTheme,
+  ToolbarProps,
+} from "@mui/material";
 import {
   AppIcon,
   AppMUIAppBar,
@@ -14,8 +20,12 @@ import ChildrenNode from "../elements/ChildrenNode";
 import AppBarStyled1 from "../elements/AppBarStyled1";
 interface HeaderProps {
   headerContent?: ReactNode; // Custom content for the header
+  ToolBarProps?: ToolbarProps;
 }
-const Header: React.FC<HeaderProps> = ({ headerContent }) => {
+export const Header: React.FC<HeaderProps> = ({
+  headerContent,
+  ToolBarProps,
+}) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const {
@@ -32,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ headerContent }) => {
     [headerContent]
   );
   const mainHeader: ReactNode = (
-    <AppMUIToolBar sx={{ px: { xs: 2, sm: 4.5, lg: 8 } }}>
+    <AppMUIToolBar sx={{ px: { xs: 2, sm: 4.5, lg: 8 } }} {...ToolBarProps}>
       {!isHorizontal ? (
         <AppMUIIconButton
           aria-label="open drawer"

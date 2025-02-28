@@ -17,7 +17,7 @@ export class YoutubeService extends ApiBaseService {
   ): Promise<ApiResponse<any>> {
     return this.get("/home", {
       params: {
-        token: token ? token : filters ? filters : "",
+        token: token ? token : filters ? filters : undefined,
         geo: geo,
         lang: lang,
       },

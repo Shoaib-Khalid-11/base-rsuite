@@ -8,13 +8,13 @@ const LoaderWrapper = styled("div")(({ theme }) => ({
   "& > * + *": { marginTop: theme.spacing(2) },
 }));
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface LoaderProps extends LinearProgressProps {}
+interface LoaderProps extends LinearProgressProps {}
 
-const Loader = () => {
+export const Loader: React.FC<LoaderProps> = ({ ...props }) => {
   return (
     <>
       <LoaderWrapper>
-        <LinearProgress color="primary" sx={{ height: 6 }} />
+        <LinearProgress color="primary" sx={{ height: 6 }} {...props} />
       </LoaderWrapper>
     </>
   );

@@ -13,7 +13,7 @@ import {
 } from "../elements/base";
 import { useState } from "react";
 
-const YoutubeVideoCard: React.FC<YoutubeVideoCardModel> = ({
+export const YoutubeVideoCard: React.FC<YoutubeVideoCardModel> = ({
   title,
   channelTitle,
   channelThumbnail,
@@ -36,14 +36,14 @@ const YoutubeVideoCard: React.FC<YoutubeVideoCardModel> = ({
           <AppMUICardActionArea>
             <AppMUICardMedia
               component="img"
-              image={thumbnail[0].url || thumbnail[1].url}
+              image={thumbnail[0]?.url || thumbnail[1]?.url}
               onError={handleImageError}
             />
             <AppMUICardContent>
               <AppMUIStack spacing={2} direction="row">
                 <AppMUIBox>
                   <AppMUIAvatar
-                    src={channelThumbnail[0]?.url ?? ""}
+                    src={channelThumbnail ? channelThumbnail[0]?.url : ""}
                     sx={{
                       width: 32,
                       height: 32,

@@ -20,15 +20,15 @@ export interface YoutubeVideoCardModel {
   channelTitle: string;
   channelId: string;
   channelHandle: string;
-  channelThumbnail: Thumbnail[];
+  channelThumbnail?: Thumbnail[];
   description: string;
   viewCount: string;
   publishedTimeText: string;
   publishDate: string;
   publishedAt: string;
   lengthText: string;
-  thumbnail: Thumbnail[];
-  richThumbnail: Thumbnail[];
+  thumbnail?: Thumbnail[];
+  richThumbnail?: Thumbnail[];
 }
 export interface YoutubeShortsCardModel {
   isOriginalAspectRatio: boolean;

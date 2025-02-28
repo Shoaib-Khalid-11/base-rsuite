@@ -8,7 +8,7 @@ import { DrawerHeaderStyled } from "global/stylus";
 interface Props {
   open: boolean;
 }
-export const DrawerHeader1: React.FC<Props> = ({ open }) => {
+export const DrawerHeader: React.FC<Props> = ({ open }) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const {
@@ -49,4 +49,4 @@ export const DrawerHeader1: React.FC<Props> = ({ open }) => {
   );
 };
 
-export default DrawerHeader1;
+export default DrawerHeader;

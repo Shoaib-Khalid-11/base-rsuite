@@ -32,7 +32,7 @@ const closedMixin = (theme: Theme) =>
     borderRight: "none",
     boxShadow: theme.shadows[8],
   } as CSSObject);
-const DrawerStyled1 = styled(Drawer, {
+export const DrawerStyled1 = styled(Drawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: DRAWER_WIDTH,

@@ -1,5 +1,5 @@
 import { sidebarMenuItems } from "global/examples/sidebarmenuItems";
-import { NavItemType } from "global/types/menu.model";
+import { NavItemType } from "global/types";
 
 const menuItem: { items: NavItemType[] } = {
   items: [

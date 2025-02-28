@@ -3,14 +3,14 @@ import { AppMUIBox, AppMUIDrawer } from "global/components/elements/base";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useMemo } from "react";
-import DrawerHeader1 from "./DrawerHeader1";
-import DrawerContent1 from "./Content1";
 import { DrawerStyled1 } from "global/stylus";
+import SideBarContent from "./SideBarContent";
+import DrawerHeader from "./DrawerHeader";
 interface Props {
   window?: () => Window;
   DrawerContent?: React.ReactNode;
 }
-const SideBarDrawer: React.FC<Props> = ({ window, DrawerContent }) => {
+export const SideBarDrawer: React.FC<Props> = ({ window, DrawerContent }) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const handlerDrawerOpen = useToggleDrawerOpen();
@@ -19,11 +19,11 @@ const SideBarDrawer: React.FC<Props> = ({ window, DrawerContent }) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
   const drawerContent = useMemo(
-    () => <DrawerContent1 children={DrawerContent} />,
+    () => <SideBarContent children={DrawerContent} />,
     [DrawerContent]
   );
   const drawerHeader = useMemo(
-    () => <DrawerHeader1 open={drawerOpen} />,
+    () => <DrawerHeader open={drawerOpen} />,
     [drawerOpen]
   );
   return (

@@ -11,7 +11,7 @@ interface ScrollableContainerProps {
   StackProps?: StackProps; // if this is needed separately, keep it for flexibility
 }
 
-const ScrollableContainer: React.FC<ScrollableContainerProps> = ({
+export const ScrollableContainer: React.FC<ScrollableContainerProps> = ({
   children,
   LeftButtonProps,
   RightButtonProps,

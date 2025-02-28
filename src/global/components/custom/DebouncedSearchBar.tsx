@@ -7,7 +7,7 @@ import {
 } from "global/components/elements/base";
 import AppMUITextField from "global/components/elements/base/AppMUITextField";
 import { InputAdornment } from "@mui/material";
-const DebouncedSearchBar = () => {
+export const DebouncedSearchBar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);

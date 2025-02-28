@@ -10,16 +10,16 @@ import {
   AppMUIMenu,
   AppMUIMenuItem,
   AppRouterLink,
-} from "../elements/base";
-import DebouncedSearchBar from "./DebouncedSearchBar";
+} from "../components/elements/base";
 import { useState } from "react";
+import YouTubeSearchBar from "../components/custom/YoutubeSearchBar";
 const pages = [
   {
     title: "Home",
     url: "/",
   },
 ];
-const YoutubeHeaderContentWithSideBars = () => {
+export const YoutubeHeaderContent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const {
@@ -38,16 +38,8 @@ const YoutubeHeaderContentWithSideBars = () => {
       {menuOrientation === MenuOrientation.HORIZONTAL && !downLG && (
         <DrawerHeader open={true} />
       )}
-      <AppMUIBox sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
-        {pages.map((page) => {
-          return (
-            <AppRouterLink to={page.url} key={page.title}>
-              <AppMUIButton>{page.title}</AppMUIButton>
-            </AppRouterLink>
-          );
-        })}
-      </AppMUIBox>
-      <AppMUIBox sx={{ width: "100%", ml: 1 }} />
+
+      {/* <AppMUIBox sx={{ width: "100%", ml: 1 }} /> */}
       {/* {downLG && <AppMUIBox sx={{ width: "100%", ml: 1 }} />} */}
       <AppMUIBox sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
         <AppMUIIconButton
@@ -86,9 +78,19 @@ const YoutubeHeaderContentWithSideBars = () => {
           })}
         </AppMUIMenu>
       </AppMUIBox>
-      <DebouncedSearchBar />
+      <YouTubeSearchBar />
+      <AppMUIBox sx={{ display: { xs: "none", sm: "flex" } }}>
+        {pages.map((page) => {
+          return (
+            <AppRouterLink to={page.url} key={page.title}>
+              <AppMUIButton>{page.title}</AppMUIButton>
+            </AppRouterLink>
+          );
+        })}
+      </AppMUIBox>
+      {/* <DebouncedSearchBar /> */}
     </>
   );
 };
 
-export default YoutubeHeaderContentWithSideBars;
+export default YoutubeHeaderContent;
