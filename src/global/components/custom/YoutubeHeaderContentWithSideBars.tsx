@@ -1,7 +1,7 @@
 import { Theme, useMediaQuery } from "@mui/material";
 import { useAppStore } from "global/hooks";
 import DrawerHeader from "global/shared/DrawerHeader";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 import {
   AppIcon,
   AppMUIBox,

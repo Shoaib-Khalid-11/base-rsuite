@@ -8,8 +8,8 @@ import {
 import AppBarStyled1 from "global/components/elements/AppBarStyled1";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
-import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
-import { MenuOrientation } from "global/types/config.model";
+import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks";
+import { MenuOrientation } from "global/types";
 import { ReactNode, useMemo } from "react";
 import HeaderContent1 from "./HeaderContent1";
 // import { useMemo } from "react";

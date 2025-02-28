@@ -8,7 +8,7 @@ import {
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 import { ReactNode, useMemo } from "react";
 import ChildrenNode from "../elements/ChildrenNode";
 import AppBarStyled1 from "../elements/AppBarStyled1";

@@ -1,7 +1,7 @@
 import { alpha, AppBarProps, useMediaQuery, useTheme } from "@mui/material";
 import { useAppStore } from "global/hooks";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 import HeaderContent from "./HeaderContent";
 import { ReactNode, useMemo } from "react";
 import {

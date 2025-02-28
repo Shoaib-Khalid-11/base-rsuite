@@ -3,7 +3,7 @@ import { AppMUIBox } from "global/components/elements/base";
 import DebouncedSearchBar from "global/components/custom/DebouncedSearchBar";
 import { useAppStore } from "global/hooks";
 import DrawerHeader from "global/shared/SideBar/Drawer/DrawerHeader";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 
 const HeaderContent1 = () => {
   const {

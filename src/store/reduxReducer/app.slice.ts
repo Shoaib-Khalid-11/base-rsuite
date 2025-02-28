@@ -8,7 +8,7 @@ import {
   PresetColor,
   ThemeDirection,
   ThemeMode,
-} from "global/types/config.model";
+} from "global/types";
 
 const initialState: DefaultConfigProps = {
   fontFamily: "'Roboto', sans-serif",

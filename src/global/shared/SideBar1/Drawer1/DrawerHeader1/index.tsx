@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useAppStore } from "global/hooks";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 import DrawerHeaderStyled from "./DrawerHeaderStyled1";
 import { DRAWER_WIDTH, HEADER_HEIGHT } from "global/configs/config";
 import LogoSection from "global/shared/icon";

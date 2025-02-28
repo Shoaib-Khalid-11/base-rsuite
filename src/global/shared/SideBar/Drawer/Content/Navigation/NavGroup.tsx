@@ -22,9 +22,8 @@ import React, {
   useState,
 } from "react";
 import { matchPath, useLocation } from "react-router-dom";
-import { NavItemType } from "global/types/menu.model";
 import NavItem from "./NavItem";
-import { MenuOrientation, ThemeMode } from "global/types/config.model";
+import { MenuOrientation, NavItemType, ThemeMode } from "global/types";
 import { FormattedMessage } from "react-intl";
 import Transitions from "global/components/animation/Transitions";
 import SimpleBarScroll from "global/components/third-party/SimpleBarScroll";

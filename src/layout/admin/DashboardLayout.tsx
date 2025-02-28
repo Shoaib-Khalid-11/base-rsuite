@@ -3,7 +3,7 @@ import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { useAppStore } from "global/hooks";
 // import NavBar from "shared/NavBar";
 import Header from "global/shared/SideBar/Header";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 import Drawer from "global/shared/SideBar/Drawer";
 import HorizontalBar from "global/shared/SideBar/Drawer/HorizantalBar";
 import { useEffect } from "react";

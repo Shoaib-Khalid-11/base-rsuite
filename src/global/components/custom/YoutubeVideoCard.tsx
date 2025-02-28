@@ -1,4 +1,4 @@
-import { YoutubeVideoCardModel } from "global/types/youtubeCard.model";
+import { YoutubeVideoCardModel } from "global/types";
 import {
   AppMUIAvatar,
   AppMUIBox,

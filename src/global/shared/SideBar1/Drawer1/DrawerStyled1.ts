@@ -1,6 +1,6 @@
 import { CSSObject, Drawer, styled, Theme } from "@mui/material";
 import { DRAWER_WIDTH } from "global/configs/config";
-import { ThemeMode } from "global/types/config.model";
+import { ThemeMode } from "global/types";
 
 const openedMixin = (theme: Theme) =>
   ({

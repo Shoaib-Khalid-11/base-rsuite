@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
-import { Product } from "global/types/products.model";
+import { Product } from "global/types/models/products.model";
 import { ProductsService } from "../services";
 const productsServices = new ProductsService();
 export const GetProducts = () => {

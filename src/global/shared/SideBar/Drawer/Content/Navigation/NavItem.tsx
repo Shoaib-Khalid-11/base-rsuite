@@ -16,11 +16,12 @@ import { useAppStore } from "global/hooks";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
 import { matchPath, useLocation, Link } from "react-router-dom";
 import {
+  LinkTarget,
   MenuOrientation,
   NavActionType,
+  NavItemType,
   ThemeMode,
-} from "global/types/config.model";
-import { LinkTarget, NavItemType } from "global/types/menu.model";
+} from "global/types";
 interface Props {
   item: NavItemType;
   level: number;

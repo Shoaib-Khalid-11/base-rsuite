@@ -1,4 +1,4 @@
-import { Product } from "global/types/products.model";
+import { Product } from "global/types/models/products.model";
 import { ApiBaseService, ApiResponse } from "./api_base.service";
 
 export class ProductsService extends ApiBaseService {

@@ -11,7 +11,6 @@ import {
   useState,
 } from "react";
 import { Link, matchPath, useLocation, useNavigate } from "react-router-dom";
-import { NavItemType } from "global/types/menu.model";
 import NavItem from "./NavItem";
 import {
   AppIcon,
@@ -27,7 +26,7 @@ import {
   AppMUIPaper,
   AppMUITypography,
 } from "global/components/elements/base";
-import { MenuOrientation, ThemeMode } from "global/types/config.model";
+import { MenuOrientation, NavItemType, ThemeMode } from "global/types";
 import Dot from "global/components/custom/Dot";
 import Transitions from "global/components/animation/Transitions";
 import SimpleBarScroll from "global/components/third-party/SimpleBarScroll";

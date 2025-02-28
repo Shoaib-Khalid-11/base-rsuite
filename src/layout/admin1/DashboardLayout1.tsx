@@ -3,7 +3,7 @@ import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useAppStore } from "global/hooks";
 import Header1 from "global/shared/SideBar1/Header";
-import { MenuOrientation } from "global/types/config.model";
+import { MenuOrientation } from "global/types";
 import Drawer from "global/shared/SideBar1/Drawer1";
 
 // import { useState } from "react";
