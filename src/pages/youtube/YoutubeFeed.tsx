@@ -1,7 +1,9 @@
 import { GetYTHomeInfiniteScroll } from "global/apis/queries/youtube.query";
 import {
+  AppIcon,
   AppMUIChip,
   AppMUIGrid,
+  AppMUIStack,
   AppMUITypography,
 } from "global/components/elements/base";
 import ScrollableContainer from "global/components/custom/ScrollAbleContainer";
@@ -18,7 +20,6 @@ const YoutubeFeed = () => {
     YTHomeInfiniteScrollResponse,
     YTHomeInfiniteScrollLoading,
     YTHomeInfiniteScrollIsFetchingNextPage,
-    // YTHomeInfiniteScrollHasNextPage,
     handleFilterClick,
     selectedFilter,
   } = GetYTHomeInfiniteScroll();
@@ -38,7 +39,7 @@ const YoutubeFeed = () => {
           {YTHomeInfiniteScrollResponse?.pages?.map((page) =>
             page.filters?.map((filter) => (
               <AppMUIChip
-                key={filter.filter} // Ensure `filter.filter` is unique, or use another unique property
+                key={filter.filter}
                 label={filter.filter}
                 onClick={() => handleFilterClick(filter.continuation)}
                 color={
@@ -56,24 +57,27 @@ const YoutubeFeed = () => {
           page.data.map((item) => (
             <>
               {item.type === "video" ? (
-                <AppMUIGrid
-                  size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-                  key={item.videoId!}
-                >
-                  <YoutubeVideoCard
-                    key={item.videoId!}
-                    // title={item.title!}
-                    // channelTitle={item.channelTitle!}
-                    // channelThumbnail={item.channelThumbnail! ?? []}
-                    // thumbnail={item.thumbnail!}
-                    // viewCount={item.viewCount!}
-                    // publishedTimeText={item.publishedTimeText!}
-                    {...item}
-                  />
-                </AppMUIGrid>
-              ) : (
-                item.type === "shorts_listing" && (
-                  <>
+                <YoutubeVideoCard key={item.videoId!} {...item} />
+              ) : item.type === "shorts_listing" ? (
+                <>
+                  <AppMUIGrid size={12} key={item.videoId!}>
+                    <AppMUIStack
+                      direction={"row"}
+                      alignItems={"center"}
+                      padding={1}
+                      spacing={1}
+                    >
+                      <AppMUITypography variant="h4" color="red">
+                        <AppIcon icon="simple-icons:youtubeshorts" />
+                      </AppMUITypography>
+                      <AppMUITypography
+                        variant="h6"
+                        align="center"
+                        fontWeight="bolder"
+                      >
+                        {item.title}
+                      </AppMUITypography>
+                    </AppMUIStack>
                     <ScrollableContainer>
                       {item?.data?.map((shorts) => {
                         return (
@@ -84,31 +88,54 @@ const YoutubeFeed = () => {
                         );
                       })}
                     </ScrollableContainer>
-                  </>
-                )
-              )}
+                  </AppMUIGrid>
+                </>
+              ) : item.type === "video_listing" ? (
+                <>
+                  <AppMUIGrid container spacing={3}>
+                    <AppMUIGrid size={12}>
+                      <AppMUIStack
+                        direction={"row"}
+                        alignItems={"center"}
+                        padding={1}
+                        spacing={1}
+                      >
+                        <AppMUITypography variant="h4" color="red">
+                          <AppIcon icon="streamline:trending-content-solid" />
+                        </AppMUITypography>
+                        <AppMUITypography
+                          variant="h6"
+                          align="center"
+                          fontWeight="bolder"
+                        >
+                          {item.title}
+                        </AppMUITypography>
+                      </AppMUIStack>
+                    </AppMUIGrid>
+                    {item?.data?.map((Trending) => {
+                      return (
+                        <YoutubeVideoCard
+                          key={Trending.videoId!}
+                          {...Trending}
+                        />
+                      );
+                    })}
+                  </AppMUIGrid>
+                </>
+              ) : null}
             </>
           ))
         )}
       </AppMUIGrid>
 
-      {YTHomeInfiniteScrollResponse?.pages.slice(-1)[0]?.message !==
-        "No more results" &&
-        YTHomeInfiniteScrollResponse?.pages.slice(-1)[0]?.nextPage !== "" && (
-          <div ref={ref}></div>
-        )}
-      {YTHomeInfiniteScrollResponse?.pages &&
-        YTHomeInfiniteScrollResponse?.pages.slice(-1)[0]?.message && (
-          <AppMUITypography
-            variant="h2"
-            color="error"
-            align="center"
-            padding={2}
-          >
-            {YTHomeInfiniteScrollResponse?.pages.slice(-1)[0].message}
-          </AppMUITypography>
-        )}
-      {/* <div ref={ref}></div> */}
+      {YTHomeInfiniteScrollResponse?.pages.slice(-1)[0]?.nextPage !== "" && (
+        <div ref={ref}></div>
+      )}
+      {YTHomeInfiniteScrollResponse?.pages.slice(-1)[0]?.message && (
+        <AppMUITypography variant="h2" color="error" align="center" padding={2}>
+          {YTHomeInfiniteScrollResponse?.pages.slice(-1)[0].message}
+        </AppMUITypography>
+      )}
     </>
   );
 };

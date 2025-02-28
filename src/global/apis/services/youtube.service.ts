@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HEADERS } from "global/configs/youtube.config";
 import { ApiBaseService, ApiResponse } from "./api_base.service";
 import { AxiosHeaders } from "axios";
@@ -7,7 +8,6 @@ export class YoutubeService extends ApiBaseService {
 
   constructor() {
     super(YoutubeService.BASE_URL, AxiosHeaders.from(HEADERS));
-    // this.headers = HEADERS); // ✅ Pass the stored URL
   }
   public getHome(
     token?: string,
@@ -19,6 +19,19 @@ export class YoutubeService extends ApiBaseService {
       params: {
         token: token ? token : filters ? filters : "",
         geo: geo,
+        lang: lang,
+      },
+    });
+  }
+  public getTrending(
+    geo?: string,
+    type?: string,
+    lang?: string
+  ): Promise<ApiResponse<any>> {
+    return this.get("/trending", {
+      params: {
+        geo: geo,
+        type: type,
         lang: lang,
       },
     });

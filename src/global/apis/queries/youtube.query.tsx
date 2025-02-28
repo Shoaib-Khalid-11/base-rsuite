@@ -1,25 +1,21 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { YoutubeService } from "../services";
 const youtubeServices = new YoutubeService();
-export const GetYTHome = () => {
-  const { data, error, isError, isSuccess, isLoading } = useQuery<unknown[]>({
-    queryKey: ["yt-home"],
-    queryFn: () => youtubeServices.getHome(),
+export const GetYTTrending = () => {
+  const { data, error, isError, isLoading } = useQuery<unknown[]>({
+    queryKey: ["yt-trending"],
+    queryFn: () => youtubeServices.getTrending("US"),
   });
-  useEffect(() => {
-    if (isSuccess) {
-      enqueueSnackbar("Home page fetched successfully", { variant: "success" });
-    }
-    if (isError) {
-      enqueueSnackbar(`Error: ${error.message}`, { variant: "error" });
-    }
-  }, [isSuccess, isError, error]);
+
+  if (isError) {
+    enqueueSnackbar(`Error: ${error.message}`, { variant: "error" });
+  }
   return {
-    YTHomeResponse: data,
-    YTHomeError: error,
-    YTHomeLoading: isLoading,
+    YTTrendingResponse: data,
+    YTTrendingError: error,
+    YTTrendingLoading: isLoading,
   };
 };
 export const GetYTHomeInfiniteScroll = () => {
