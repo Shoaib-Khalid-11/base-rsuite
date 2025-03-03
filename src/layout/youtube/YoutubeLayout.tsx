@@ -8,16 +8,21 @@ import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useToggleDrawerOpen } from "global/hooks/menu";
 import { MenuOrientation } from "global/types";
-import { Header, SideBarDrawer } from "global/components/custom";
-import { YoutubeSideBarContent, YoutubeHeaderContent } from "global/contents";
+import { MiniSideBarDrawer, Navigation } from "global/components/custom";
+import { YoutubeHeaderContent } from "global/contents";
+import MiniHeader from "global/components/custom/MiniHeader";
+import HorizantalBar from "global/components/custom/HorizantalBar";
+import { useMenuItems } from "content/menuitems";
 
 const YoutubeLayout = () => {
   const theme = useTheme();
   const downXL = useMediaQuery(theme.breakpoints.down("xl"));
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
+  const { youtube } = useMenuItems();
   const {
     appStateValue: { menuOrientation, miniDrawer },
   } = useAppStore();
+
   const handlerDrawerOpen = useToggleDrawerOpen();
   const isHorizontal =
     menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
@@ -29,13 +34,24 @@ const YoutubeLayout = () => {
   }, [downXL]);
   return (
     <AppMUIBox sx={{ display: "flex", width: "100%" }}>
-      <Header
+      {/* <Header
         headerContent={<YoutubeHeaderContent />}
         ToolBarProps={{
           sx: { justifyContent: "space-between" },
         }}
+      /> */}
+      <MiniHeader
+        ToolBarProps={{ sx: { justifyContent: "space-between" } }}
+        headerContent={<YoutubeHeaderContent />}
       />
-      <SideBarDrawer DrawerContent={<YoutubeSideBarContent />} />
+      {/* <SideBarDrawer DrawerContent={<YoutubeSideBarContent />} /> */}
+      {!isHorizontal ? (
+        <MiniSideBarDrawer
+          DrawerContent={<Navigation navigators={youtube} />}
+        />
+      ) : (
+        <HorizantalBar children={<Navigation navigators={youtube} />} />
+      )}
       <AppMUIBox
         component="main"
         sx={{

@@ -29,6 +29,8 @@ export type NavItemType = {
   type?: string;
   url?: string | undefined;
   actions?: NavActionProps[];
+  onclick?: () => void;
+  // onclick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 };
 export type LinkTarget = "_blank" | "_self" | "_parent" | "_top";
 export type MenuProps = {

@@ -9,7 +9,6 @@ import {
   AppMUIListItemIcon,
   AppMUIListItemText,
   AppMUITypography,
-  AppRouterLink,
 } from "global/components/elements/base";
 import Dot from "global/components/custom/Dot";
 import { useAppStore } from "global/hooks";
@@ -61,125 +60,131 @@ export const NavItem = ({ item, level, isParents = false }: Props) => {
     <>
       {menuOrientation === MenuOrientation.VERTICAL || downLG ? (
         <AppMUIBox sx={{ position: "relative" }}>
-          <AppRouterLink to={item.url!} target={itemTarget}>
-            <AppMUIListItemButton
-              disabled={item.disabled}
-              selected={isSelected}
-              sx={{
-                zIndex: 1201,
-                pl: drawerOpen ? `${level * 20}px` : 1.5,
-                py: !drawerOpen && level === 1 ? 1.25 : 1,
-                ...(drawerOpen && {
+          {/* <AppRouterLink to={item.url!} target={itemTarget}> */}
+          <AppMUIListItemButton
+            disabled={item.disabled}
+            selected={isSelected}
+            {...(item.url && {
+              component: Link,
+              to: item.url,
+              target: itemTarget,
+            })}
+            {...(item.onclick && { onClick: item.onclick })}
+            sx={{
+              zIndex: 1201,
+              pl: drawerOpen ? `${level * 20}px` : 1.5,
+              py: !drawerOpen && level === 1 ? 1.25 : 1,
+              ...(drawerOpen && {
+                "&:hover": { bgcolor: "transparent" },
+                "&.Mui-selected": {
                   "&:hover": { bgcolor: "transparent" },
+                  bgcolor: "transparent",
+                },
+              }),
+              ...(drawerOpen &&
+                level === 1 && {
+                  mx: 1.25,
+                  my: 0.5,
+                  borderRadius: 1,
+                  "&:hover": {
+                    bgcolor:
+                      mode === ThemeMode.DARK ? "divider" : "secondary.200",
+                  },
                   "&.Mui-selected": {
-                    "&:hover": { bgcolor: "transparent" },
-                    bgcolor: "transparent",
+                    color: iconSelectedColor,
+                    "&:hover": { color: iconSelectedColor },
                   },
                 }),
-                ...(drawerOpen &&
-                  level === 1 && {
-                    mx: 1.25,
-                    my: 0.5,
-                    borderRadius: 1,
-                    "&:hover": {
+              ...(!drawerOpen && {
+                px: 2.75,
+                justifyContent: "center",
+                "&:hover": { bgcolor: "transparent" },
+                "&.Mui-selected": {
+                  "&:hover": { bgcolor: "transparent" },
+                  bgcolor: "transparent",
+                },
+              }),
+            }}
+            {...(downLG && {
+              onClick: () => handlerDrawerOpen.mutate(false),
+            })}
+          >
+            {itemIcon && (
+              <AppMUIListItemIcon
+                sx={{
+                  minWidth: 38,
+                  color: isSelected ? iconSelectedColor : textColor,
+                  ...(!drawerOpen &&
+                    level === 1 && {
+                      borderRadius: 1,
+                      width: 40,
+                      height: 40,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      "&:hover": {
+                        bgcolor:
+                          mode === ThemeMode.DARK
+                            ? "secondary.light"
+                            : "secondary.light",
+                        // : "secondary.main",
+                      },
+                    }),
+                  ...(!drawerOpen &&
+                    isSelected && {
                       bgcolor:
-                        mode === ThemeMode.DARK ? "divider" : "secondary.200",
-                    },
-                    "&.Mui-selected": {
-                      color: iconSelectedColor,
-                      "&:hover": { color: iconSelectedColor },
-                    },
-                  }),
-                ...(!drawerOpen && {
-                  px: 2.75,
-                  justifyContent: "center",
-                  "&:hover": { bgcolor: "transparent" },
-                  "&.Mui-selected": {
-                    "&:hover": { bgcolor: "transparent" },
-                    bgcolor: "transparent",
-                  },
-                }),
-              }}
-              {...(downLG && {
-                onClick: () => handlerDrawerOpen.mutate(false),
-              })}
-            >
-              {itemIcon && (
-                <AppMUIListItemIcon
-                  sx={{
-                    minWidth: 38,
-                    color: isSelected ? iconSelectedColor : textColor,
-                    ...(!drawerOpen &&
-                      level === 1 && {
-                        borderRadius: 1,
-                        width: 40,
-                        height: 40,
-                        alignItems: "center",
-                        justifyContent: "center",
-                        "&:hover": {
-                          bgcolor:
-                            mode === ThemeMode.DARK
-                              ? "secondary.light"
-                              : "secondary.light",
-                          // : "secondary.main",
-                        },
-                      }),
-                    ...(!drawerOpen &&
-                      isSelected && {
+                        mode === ThemeMode.DARK
+                          ? "secondary.dark"
+                          : "transparent",
+                      "&:hover": {
                         bgcolor:
                           mode === ThemeMode.DARK
                             ? "secondary.dark"
-                            : "transparent",
-                        "&:hover": {
-                          bgcolor:
-                            mode === ThemeMode.DARK
-                              ? "secondary.dark"
-                              : "primary.light",
-                        },
-                      }),
-                  }}
-                >
-                  {itemIcon}
-                </AppMUIListItemIcon>
-              )}
-              {!itemIcon && drawerOpen && (
-                <AppMUIListItemIcon sx={{ minWidth: 30 }}>
-                  <Dot
-                    size={isSelected ? 6 : 5}
-                    color={isSelected ? "primary" : "secondary"}
-                  />
-                </AppMUIListItemIcon>
-              )}
-              {(drawerOpen || (!drawerOpen && level !== 1)) && (
-                <AppMUIListItemText
-                  primary={
-                    <AppMUITypography
-                      variant="h6"
-                      sx={{
-                        color: isSelected ? iconSelectedColor : textColor,
-                        fontWeight: isSelected ? 500 : 400,
-                      }}
-                    >
-                      {item.title}
-                    </AppMUITypography>
-                  }
+                            : "primary.light",
+                      },
+                    }),
+                }}
+              >
+                {itemIcon}
+              </AppMUIListItemIcon>
+            )}
+            {!itemIcon && drawerOpen && (
+              <AppMUIListItemIcon sx={{ minWidth: 30 }}>
+                <Dot
+                  size={isSelected ? 6 : 5}
+                  color={isSelected ? "primary" : "secondary"}
                 />
-              )}
-              {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
-                <AppMUIChip
-                  color={item.chip.color}
-                  variant={item.chip.variant}
-                  size={item.chip.size}
-                  label={item.chip.label}
-                  avatar={
-                    item.chip.avatar && (
-                      <AppMUIAvatar>{item.chip.avatar}</AppMUIAvatar>
-                    )
-                  }
-                />
-              )}
-            </AppMUIListItemButton>
-          </AppRouterLink>
+              </AppMUIListItemIcon>
+            )}
+            {(drawerOpen || (!drawerOpen && level !== 1)) && (
+              <AppMUIListItemText
+                primary={
+                  <AppMUITypography
+                    variant="h6"
+                    sx={{
+                      color: isSelected ? iconSelectedColor : textColor,
+                      fontWeight: isSelected ? 500 : 400,
+                    }}
+                  >
+                    {item.title}
+                  </AppMUITypography>
+                }
+              />
+            )}
+            {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
+              <AppMUIChip
+                color={item.chip.color}
+                variant={item.chip.variant}
+                size={item.chip.size}
+                label={item.chip.label}
+                avatar={
+                  item.chip.avatar && (
+                    <AppMUIAvatar>{item.chip.avatar}</AppMUIAvatar>
+                  )
+                }
+              />
+            )}
+          </AppMUIListItemButton>
+          {/* </AppRouterLink> */}
           {(drawerOpen || (!drawerOpen && level !== 1)) &&
             item?.actions &&
             item?.actions.map((action, index) => {
@@ -238,75 +243,81 @@ export const NavItem = ({ item, level, isParents = false }: Props) => {
             })}
         </AppMUIBox>
       ) : (
-        <AppRouterLink to={item.url!} target={itemTarget}>
-          <AppMUIListItemButton
-            disabled={item.disabled}
-            selected={isSelected}
-            sx={{
-              zIndex: 1201,
-              "&:hover": { bgcolor: "transparent" },
-              ...(isParents && { color: textColor, p: 1, mr: 1 }),
-              "&.Mui-selected": {
-                bgcolor: "transparent",
+        // <AppRouterLink to={item.url!} target={itemTarget}>
+        <AppMUIListItemButton
+          {...(item.url && {
+            component: Link,
+            to: item.url,
+            target: itemTarget,
+          })}
+          {...(item.onclick && { onClick: item.onclick })}
+          disabled={item.disabled}
+          selected={isSelected}
+          sx={{
+            zIndex: 1201,
+            "&:hover": { bgcolor: "transparent" },
+            ...(isParents && { color: textColor, p: 1, mr: 1 }),
+            "&.Mui-selected": {
+              bgcolor: "transparent",
+              color: iconSelectedColor,
+              "&:hover": {
                 color: iconSelectedColor,
-                "&:hover": {
-                  color: iconSelectedColor,
-                  bgcolor: "transparent",
-                },
+                bgcolor: "transparent",
               },
-            }}
-          >
-            {itemIcon && (
-              <AppMUIListItemIcon
-                sx={{
-                  minWidth: 36,
-                  ...(!drawerOpen && {
-                    borderRadius: 1,
-                    width: 36,
-                    height: 26,
-                    alignItems: "center",
-                    justifyContent: "flex-start",
+            },
+          }}
+        >
+          {itemIcon && (
+            <AppMUIListItemIcon
+              sx={{
+                minWidth: 36,
+                ...(!drawerOpen && {
+                  borderRadius: 1,
+                  width: 36,
+                  height: 26,
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  "&:hover": { bgcolor: "transparent" },
+                }),
+                ...(!drawerOpen &&
+                  isSelected && {
+                    bgcolor: "transparent",
                     "&:hover": { bgcolor: "transparent" },
                   }),
-                  ...(!drawerOpen &&
-                    isSelected && {
-                      bgcolor: "transparent",
-                      "&:hover": { bgcolor: "transparent" },
-                    }),
+              }}
+            >
+              {itemIcon}
+            </AppMUIListItemIcon>
+          )}
+          <AppMUIListItemText
+            primary={
+              <AppMUITypography
+                variant="h6"
+                sx={{
+                  color: isSelected ? iconSelectedColor : textColor,
+                  fontWeight: isSelected ? 500 : 400,
                 }}
               >
-                {itemIcon}
-              </AppMUIListItemIcon>
-            )}
-            <AppMUIListItemText
-              primary={
-                <AppMUITypography
-                  variant="h6"
-                  sx={{
-                    color: isSelected ? iconSelectedColor : textColor,
-                    fontWeight: isSelected ? 500 : 400,
-                  }}
-                >
-                  {item.title}
-                </AppMUITypography>
+                {item.title}
+              </AppMUITypography>
+            }
+          />
+          {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
+            <AppMUIChip
+              color={item.chip.color}
+              variant={item.chip.variant}
+              size={item.chip.size}
+              label={item.chip.label}
+              avatar={
+                item.chip.avatar && (
+                  <AppMUIAvatar>{item.chip.avatar}</AppMUIAvatar>
+                )
               }
+              sx={{ ml: 1 }}
             />
-            {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
-              <AppMUIChip
-                color={item.chip.color}
-                variant={item.chip.variant}
-                size={item.chip.size}
-                label={item.chip.label}
-                avatar={
-                  item.chip.avatar && (
-                    <AppMUIAvatar>{item.chip.avatar}</AppMUIAvatar>
-                  )
-                }
-                sx={{ ml: 1 }}
-              />
-            )}
-          </AppMUIListItemButton>
-        </AppRouterLink>
+          )}
+        </AppMUIListItemButton>
+        // </AppRouterLink>
       )}
     </>
   );
