@@ -1,6 +1,7 @@
 import YoutubeLayout from "layout/youtube/YoutubeLayout";
-import { yt_home_path } from "./connections";
+import { yt_home_path, yt_trending_path } from "./connections";
 import YoutubeFeed from "pages/youtube/YoutubeFeed";
+import YoutubeTrending from "pages/youtube/YoutubeTrending";
 
 const YoutubeRoutes = {
   path: "/",
@@ -12,6 +13,10 @@ const YoutubeRoutes = {
         {
           path: yt_home_path(),
           element: <YoutubeFeed />,
+        },
+        {
+          path: yt_trending_path(),
+          element: <YoutubeTrending />,
         },
       ],
     },

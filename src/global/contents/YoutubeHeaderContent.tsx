@@ -1,5 +1,5 @@
 import { Theme, useMediaQuery } from "@mui/material";
-import { useAppStore, useYoutubeStoreHook } from "global/hooks";
+import { useAppStore } from "global/hooks";
 import DrawerHeader from "global/shared/DrawerHeader";
 import { MenuOrientation } from "global/types";
 import {
@@ -14,18 +14,10 @@ import {
 import { useState } from "react";
 import YouTubeSearchBar from "../components/custom/YoutubeSearchBar";
 export const YoutubeHeaderContent = () => {
-  const { setYoutubeLinkReducer } = useYoutubeStoreHook();
   const pages = [
     {
       title: "Home",
       url: "/",
-    },
-    {
-      title: "Youtube",
-      // url: yt_home_path(),
-      onClick: () => {
-        setYoutubeLinkReducer("");
-      },
     },
   ];
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -47,8 +39,6 @@ export const YoutubeHeaderContent = () => {
         <DrawerHeader open={true} />
       )}
 
-      {/* <AppMUIBox sx={{ width: "100%", ml: 1 }} /> */}
-      {/* {downLG && <AppMUIBox sx={{ width: "100%", ml: 1 }} />} */}
       <AppMUIBox sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
         <AppMUIIconButton
           size="large"
@@ -85,9 +75,7 @@ export const YoutubeHeaderContent = () => {
                     <AppMUIMenuItem>{page.title}</AppMUIMenuItem>
                   </AppRouterLink>
                 ) : (
-                  <AppMUIMenuItem key={page.title} onClick={page.onClick}>
-                    {page.title}
-                  </AppMUIMenuItem>
+                  <AppMUIMenuItem key={page.title}>{page.title}</AppMUIMenuItem>
                 )}
               </>
             );
@@ -104,9 +92,7 @@ export const YoutubeHeaderContent = () => {
                   <AppMUIButton>{page.title}</AppMUIButton>
                 </AppRouterLink>
               ) : (
-                <AppMUIButton key={page.title} onClick={page.onClick}>
-                  {page.title}
-                </AppMUIButton>
+                <AppMUIButton key={page.title}>{page.title}</AppMUIButton>
               )}
             </>
           );

@@ -1,5 +1,5 @@
 import { useYoutubeStoreHook } from "global/hooks";
-import { yt_home_path } from "global/routes/connections";
+import { yt_home_path, yt_trending_path } from "global/routes/connections";
 import { NavItemType } from "global/types";
 import { FormattedMessage } from "react-intl";
 
@@ -31,8 +31,14 @@ export const useYoutubeMenuItems = () => {
       icon: "bx:home",
       onclick: () => {
         setYoutubeLinkReducer("");
-        console.log("clicked home");
       }, // Call the function from the store
+    },
+    {
+      id: "single-home",
+      title: <FormattedMessage id="trending" defaultMessage="Trending" />,
+      type: "group",
+      url: yt_trending_path(),
+      icon: "streamline:trending-content",
     },
   ];
 

@@ -19,7 +19,11 @@ export const YoutubeShortsCard: React.FC<YoutubeShortsCardModel> = ({
       <AppMUIBox>
         <AppMUICard sx={{ height: "100%", width: 260 }}>
           <AppMUICardActionArea>
-            <AppMUICardMedia component="img" image={thumbnail[0].url} />
+            <AppMUICardMedia
+              component="img"
+              image={thumbnail[0].url}
+              sx={{ height: "100%" }}
+            />
             <AppMUICardContent>
               <AppMUITypography variant="body2" fontWeight={"bold"}>
                 {title}

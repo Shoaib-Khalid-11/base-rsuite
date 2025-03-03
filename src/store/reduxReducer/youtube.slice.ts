@@ -1,14 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAppStore } from "store";
+type GeoProps = "PK" | "US";
 
 export interface YoutubeState {
   ytSearch: string;
   initialLink: string;
+  geo: GeoProps;
 }
 
 const initialState: YoutubeState = {
   ytSearch: "",
   initialLink: "",
+  geo: "PK",
 };
 
 export const youtubeSlice = createSlice({
@@ -20,6 +23,9 @@ export const youtubeSlice = createSlice({
     },
     setLink: (state: YoutubeState, action: PayloadAction<string>) => {
       state.initialLink = action.payload;
+    },
+    setGeo: (state: YoutubeState, action: PayloadAction<GeoProps>) => {
+      state.geo = action.payload;
     },
   },
 });

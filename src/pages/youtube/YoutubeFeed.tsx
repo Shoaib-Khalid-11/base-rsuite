@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import Loader from "global/components/custom/Loader";
 import YoutubeShortsCard from "global/components/custom/YoutubeShortsCard";
 
-const YoutubeFeed = () => {
+export const YoutubeFeed = () => {
   const { ref, inView } = useInView();
   const {
     YTHomeInfiniteScrollFetchNextPage,
@@ -24,7 +24,6 @@ const YoutubeFeed = () => {
     handleFilterClick,
     initialLink,
   } = GetYTHomeInfiniteScroll();
-  console.log(YTHomeInfiniteScrollResponse);
   useEffect(() => {
     if (inView) {
       YTHomeInfiniteScrollFetchNextPage();
