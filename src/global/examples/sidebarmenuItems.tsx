@@ -1,4 +1,4 @@
-import { NavItemType } from "global/types/menu.model";
+import { NavItemType } from "global/types";
 import { FormattedMessage } from "react-intl";
 
 export const sidebarMenuItems: NavItemType[] = [

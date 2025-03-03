@@ -61,7 +61,7 @@ interface Props {
   setSelectedLevel: Dispatch<SetStateAction<number>>;
   selectedLevel: number;
 }
-const NavCollapse: React.FC<Props> = ({
+export const NavCollapse: React.FC<Props> = ({
   menu,
   level,
   parentId,

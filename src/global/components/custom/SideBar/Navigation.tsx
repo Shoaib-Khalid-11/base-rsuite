@@ -14,7 +14,7 @@ import NavGroup from "./NavGroup";
 interface Props {
   navigators?: NavItemType[];
 }
-const Navigation: React.FC<Props> = ({ navigators }) => {
+export const Navigation: React.FC<Props> = ({ navigators }) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const {

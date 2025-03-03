@@ -23,7 +23,7 @@ interface MiniHeaderProps {
   headerContent?: ReactNode; // Custom content for the header
   ToolBarProps?: ToolbarProps;
 }
-const MiniHeader: React.FC<MiniHeaderProps> = ({
+export const MiniHeader: React.FC<MiniHeaderProps> = ({
   headerContent,
   ToolBarProps,
 }) => {

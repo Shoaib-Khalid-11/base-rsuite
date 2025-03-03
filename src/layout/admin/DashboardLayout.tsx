@@ -2,14 +2,22 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
 import { useAppStore } from "global/hooks";
 // import NavBar from "shared/NavBar";
-import Header from "global/shared/SideBar/Header";
+// import Header from "global/shared/SideBar/Header";
 import { MenuOrientation } from "global/types";
-import Drawer from "global/shared/SideBar/Drawer";
-import HorizontalBar from "global/shared/SideBar/Drawer/HorizantalBar";
+// import Drawer from "global/shared/SideBar/Drawer";
+// import HorizontalBar from "global/shared/SideBar/Drawer/HorizantalBar";
 import { useEffect } from "react";
 import { useToggleDrawerOpen } from "global/hooks/menu";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { Outlet } from "react-router-dom";
+import {
+  DebouncedSearchBar,
+  MiniSideBarDrawer,
+  Navigation,
+} from "global/components/custom";
+import menuItem from "content/menuitems";
+import HorizantalBar from "global/components/custom/HorizantalBar";
+import MiniHeader from "global/components/custom/MiniHeader";
 
 const DashboardLayout = () => {
   const theme = useTheme();
@@ -30,8 +38,19 @@ const DashboardLayout = () => {
   return (
     <>
       <AppMUIBox sx={{ display: "flex", width: "100%" }}>
-        <Header />
-        {!isHorizontal ? <Drawer /> : <HorizontalBar />}
+        <MiniHeader
+          ToolBarProps={{ sx: { justifyContent: "space-between" } }}
+          headerContent={<DebouncedSearchBar />}
+        />
+        {!isHorizontal ? (
+          <MiniSideBarDrawer
+            DrawerContent={<Navigation navigators={menuItem.items} />}
+          />
+        ) : (
+          <HorizantalBar
+            children={<Navigation navigators={menuItem.items} />}
+          />
+        )}
         <AppMUIBox
           component="main"
           sx={{

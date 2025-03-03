@@ -27,7 +27,7 @@ interface Props {
   level: number;
   isParents?: boolean;
 }
-const NavItem = ({ item, level, isParents = false }: Props) => {
+export const NavItem = ({ item, level, isParents = false }: Props) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const {

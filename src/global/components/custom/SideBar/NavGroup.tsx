@@ -66,7 +66,7 @@ const PopperStyled = styled(Popper)(({ theme }) => ({
     borderTop: `1px solid ${theme.palette.divider}`,
   },
 }));
-const NavGroup: React.FC<Props> = ({
+export const NavGroup: React.FC<Props> = ({
   item,
   lastItem,
   remItems,

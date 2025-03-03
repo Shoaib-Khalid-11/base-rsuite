@@ -33,7 +33,7 @@ const ElevationScroll: React.FC<ElevationScrollProps> = ({
     elevation: trigger ? 4 : 1,
   });
 };
-const HorizantalBar: React.FC<HorizantalBarProps> = ({ children }) => {
+export const HorizantalBar: React.FC<HorizantalBarProps> = ({ children }) => {
   const theme = useTheme();
   const {
     appStateValue: { container },
