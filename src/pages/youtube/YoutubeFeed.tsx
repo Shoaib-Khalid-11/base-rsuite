@@ -22,7 +22,7 @@ const YoutubeFeed = () => {
     YTHomeInfiniteScrollLoading,
     YTHomeInfiniteScrollIsFetchingNextPage,
     handleFilterClick,
-    selectedFilter,
+    initialLink,
   } = GetYTHomeInfiniteScroll();
   console.log(YTHomeInfiniteScrollResponse);
   useEffect(() => {
@@ -45,9 +45,7 @@ const YoutubeFeed = () => {
                   label={filter.filter}
                   onClick={() => handleFilterClick(filter.continuation)}
                   color={
-                    selectedFilter === filter.continuation
-                      ? "primary"
-                      : "default"
+                    initialLink === filter.continuation ? "primary" : "default"
                   }
                   clickable
                 />

@@ -1,5 +1,5 @@
 import { CSSObject, Drawer, styled, Theme } from "@mui/material";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "global/configs/config";
 import { ThemeMode } from "global/types";
 
 const openedMixin = (theme: Theme) =>
@@ -28,11 +28,11 @@ const closedMixin = (theme: Theme) =>
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: 0,
+    width: MINI_DRAWER_WIDTH,
     borderRight: "none",
     boxShadow: theme.shadows[8],
   } as CSSObject);
-const DrawerStyled1 = styled(Drawer, {
+export const MiniDrawerStyled = styled(Drawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: DRAWER_WIDTH,
@@ -48,4 +48,4 @@ const DrawerStyled1 = styled(Drawer, {
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
 }));
-export default DrawerStyled1;
+export default MiniDrawerStyled;

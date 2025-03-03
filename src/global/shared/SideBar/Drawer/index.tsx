@@ -3,9 +3,9 @@ import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
 import { useMemo } from "react";
 import DrawerContent from "./Content";
 import { AppMUIBox, AppMUIDrawer } from "global/components/elements/base";
-import MiniDrawerStyled from "./MiniDrawerStyled";
 import { DRAWER_WIDTH } from "global/configs/config";
-import DrawerHeader from "./DrawerHeader";
+import { MiniDrawerStyled } from "global/stylus";
+import { DrawerHeader } from "global/components/custom";
 interface Props {
   window?: () => Window;
 }

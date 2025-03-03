@@ -1,6 +1,6 @@
 import SimpleBarScroll from "global/components/third-party/SimpleBarScroll";
 import Navigation from "./Navigation";
-import NavUser from "./NavUser";
+import { NavUser } from "global/components/custom";
 
 const SideBarContent = () => {
   return (

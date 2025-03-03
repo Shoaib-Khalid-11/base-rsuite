@@ -1,15 +1,19 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIDrawer } from "global/components/elements/base";
-import DrawerStyled1 from "./DrawerStyled1";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
-import { DRAWER_WIDTH } from "global/configs/config";
 import { useMemo } from "react";
-import DrawerHeader1 from "./DrawerHeader1";
-import DrawerContent1 from "./Content1";
+import { AppMUIBox, AppMUIDrawer } from "global/components/elements/base";
+import { DRAWER_WIDTH } from "global/configs/config";
+import DrawerHeader from "./DrawerHeader";
+import { MiniDrawerStyled } from "global/stylus";
+import SideBarContent from "./SideBarContent";
 interface Props {
   window?: () => Window;
+  DrawerContent?: React.ReactNode;
 }
-const SideBarDrawer1: React.FC<Props> = ({ window }) => {
+export const MiniSideBarDrawer: React.FC<Props> = ({
+  window,
+  DrawerContent,
+}) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const handlerDrawerOpen = useToggleDrawerOpen();
@@ -17,11 +21,15 @@ const SideBarDrawer1: React.FC<Props> = ({ window }) => {
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
   const container =
     window !== undefined ? () => window().document.body : undefined;
-  const drawerContent = useMemo(() => <DrawerContent1 />, []);
+  const drawerContent = useMemo(
+    () => <SideBarContent children={DrawerContent} />,
+    [DrawerContent]
+  );
   const drawerHeader = useMemo(
-    () => <DrawerHeader1 open={drawerOpen} />,
+    () => <DrawerHeader open={drawerOpen} />,
     [drawerOpen]
   );
+
   return (
     <>
       <AppMUIBox
@@ -30,10 +38,10 @@ const SideBarDrawer1: React.FC<Props> = ({ window }) => {
         aria-label="mailbox folders"
       >
         {!downLG ? (
-          <DrawerStyled1 variant="permanent" open={drawerOpen}>
+          <MiniDrawerStyled variant="permanent" open={drawerOpen}>
             {drawerHeader}
             {drawerContent}
-          </DrawerStyled1>
+          </MiniDrawerStyled>
         ) : (
           <AppMUIDrawer
             container={container}
@@ -61,4 +69,4 @@ const SideBarDrawer1: React.FC<Props> = ({ window }) => {
   );
 };
 
-export default SideBarDrawer1;
+export default MiniSideBarDrawer;

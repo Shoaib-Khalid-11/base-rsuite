@@ -1,20 +1,32 @@
-import { alpha, AppBarProps, useMediaQuery, useTheme } from "@mui/material";
+import {
+  alpha,
+  AppBarProps,
+  ToolbarProps,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { useAppStore } from "global/hooks";
+import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
+import { MenuOrientation } from "global/types";
+import { ReactNode, useMemo } from "react";
 import {
   AppIcon,
   AppMUIAppBar,
   AppMUIIconButton,
   AppMUIToolBar,
 } from "global/components/elements/base";
-import AppBarStyled1 from "global/components/elements/AppBarStyled1";
-import { DRAWER_WIDTH } from "global/configs/config";
-import { useAppStore } from "global/hooks";
-import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks";
-import { MenuOrientation } from "global/types";
-import { ReactNode, useMemo } from "react";
-import HeaderContent1 from "./HeaderContent1";
-// import { useMemo } from "react";
-
-const Header1 = () => {
+import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "global/configs/config";
+import AppBarStyled from "global/components/elements/AppBarStyled";
+import ChildrenNode from "../elements/ChildrenNode";
+// import AppBarStyled from "./AppBarStyled";
+interface MiniHeaderProps {
+  headerContent?: ReactNode; // Custom content for the header
+  ToolBarProps?: ToolbarProps;
+}
+const MiniHeader: React.FC<MiniHeaderProps> = ({
+  headerContent,
+  ToolBarProps,
+}) => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const {
@@ -26,9 +38,16 @@ const Header1 = () => {
   const isHorizontal =
     menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
   // header content
-  const headerContent = useMemo(() => <HeaderContent1 />, []);
+  const headerContentMemo: ReactNode | undefined = useMemo(
+    () => <ChildrenNode children={headerContent} />,
+    [headerContent]
+  );
+  // const iconBackColorOpen =
+  //   mode === ThemeMode.DARK ? "background.paper" : "secondary.light";
+  // const iconBackColor =
+  //   mode === ThemeMode.DARK ? "background.default" : "secondary.light";
   const mainHeader: ReactNode = (
-    <AppMUIToolBar sx={{ px: { xs: 2, sm: 4.5, lg: 8 } }}>
+    <AppMUIToolBar sx={{ px: { xs: 2, sm: 4.5, lg: 8 } }} {...ToolBarProps}>
       {!isHorizontal ? (
         <AppMUIIconButton
           aria-label="open drawer"
@@ -51,12 +70,12 @@ const Header1 = () => {
           )}
         </AppMUIIconButton>
       ) : null}
-      {headerContent}
+      {headerContentMemo}
     </AppMUIToolBar>
   );
   const appBar: AppBarProps = {
     position: "fixed",
-    // elevation: 0,
+    elevation: 0,
     sx: {
       bgcolor: alpha(theme.palette.background.default, 0.8),
       backdropFilter: "blur(8px)",
@@ -65,16 +84,18 @@ const Header1 = () => {
         ? "100%"
         : {
             xs: "100%",
-            lg: drawerOpen ? `calc(100% - ${DRAWER_WIDTH}px)` : `100%`,
+            lg: drawerOpen
+              ? `calc(100% - ${DRAWER_WIDTH}px)`
+              : `calc(100% - ${MINI_DRAWER_WIDTH}px)`,
           },
     },
   };
   return (
     <>
       {!downLG ? (
-        <AppBarStyled1 open={drawerOpen} {...appBar}>
+        <AppBarStyled open={drawerOpen} {...appBar}>
           {mainHeader}
-        </AppBarStyled1>
+        </AppBarStyled>
       ) : (
         <AppMUIAppBar {...appBar}>{mainHeader}</AppMUIAppBar>
       )}
@@ -82,4 +103,4 @@ const Header1 = () => {
   );
 };
 
-export default Header1;
+export default MiniHeader;

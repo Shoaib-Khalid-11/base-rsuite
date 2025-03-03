@@ -3,9 +3,9 @@ import { AppMUIBox, AppMUIDrawer } from "global/components/elements/base";
 import { useGetMenuMaster, useToggleDrawerOpen } from "global/hooks/menu";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { useMemo } from "react";
-import { DrawerStyled1 } from "global/stylus";
 import SideBarContent from "./SideBarContent";
 import DrawerHeader from "./DrawerHeader";
+import { DrawerStyled } from "global/stylus";
 interface Props {
   window?: () => Window;
   DrawerContent?: React.ReactNode;
@@ -34,10 +34,10 @@ export const SideBarDrawer: React.FC<Props> = ({ window, DrawerContent }) => {
         aria-label="mailbox folders"
       >
         {!downLG ? (
-          <DrawerStyled1 variant="permanent" open={drawerOpen}>
+          <DrawerStyled variant="permanent" open={drawerOpen}>
             {drawerHeader}
             {drawerContent}
-          </DrawerStyled1>
+          </DrawerStyled>
         ) : (
           <AppMUIDrawer
             container={container}

@@ -1,2 +1,3 @@
-export * from "./DrawerStyled1";
+export * from "./DrawerStyled";
 export * from "./DraweHeaderStyled";
+export * from "./MiniDrawerStyled";
