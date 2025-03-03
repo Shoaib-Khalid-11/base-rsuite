@@ -15,7 +15,7 @@ import {
   MiniSideBarDrawer,
   Navigation,
 } from "global/components/custom";
-import menuItem from "content/menuitems";
+import { useMenuItems } from "content/menuitems";
 import HorizantalBar from "global/components/custom/HorizantalBar";
 import MiniHeader from "global/components/custom/MiniHeader";
 
@@ -24,6 +24,8 @@ const DashboardLayout = () => {
   const downXL = useMediaQuery(theme.breakpoints.down("xl"));
   const downLG = useMediaQuery(theme.breakpoints.down("lg"));
   const handlerDrawerOpen = useToggleDrawerOpen();
+  const { items } = useMenuItems();
+
   const {
     appStateValue: { menuOrientation, miniDrawer },
   } = useAppStore();
@@ -44,12 +46,10 @@ const DashboardLayout = () => {
         />
         {!isHorizontal ? (
           <MiniSideBarDrawer
-            DrawerContent={<Navigation navigators={menuItem.items} />}
+            DrawerContent={<Navigation navigators={items} />}
           />
         ) : (
-          <HorizantalBar
-            children={<Navigation navigators={menuItem.items} />}
-          />
+          <HorizantalBar children={<Navigation navigators={items} />} />
         )}
         <AppMUIBox
           component="main"
