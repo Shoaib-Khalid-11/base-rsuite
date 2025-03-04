@@ -1,1 +1,6 @@
-{ "home": "首页", "more-items": "更多项目", "dashboard": "仪表板" }
+{
+  "home": "首页",
+  "more-items": "更多项目",
+  "dashboard": "仪表板",
+  "trending": "趋势"
+}

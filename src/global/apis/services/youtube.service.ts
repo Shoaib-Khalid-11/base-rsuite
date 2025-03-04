@@ -2,6 +2,7 @@
 import { HEADERS } from "global/configs/youtube.config";
 import { ApiBaseService, ApiResponse } from "./api_base.service";
 import { AxiosHeaders } from "axios";
+import { GeoProps } from "global/types";
 
 export class YoutubeService extends ApiBaseService {
   private static readonly BASE_URL = import.meta.env.VITE_YT_API_URL;
@@ -12,7 +13,7 @@ export class YoutubeService extends ApiBaseService {
   public getHome(
     token?: string,
     filters?: string,
-    geo?: string,
+    geo?: GeoProps,
     lang?: string
   ): Promise<ApiResponse<any>> {
     return this.get("/home", {
@@ -24,7 +25,7 @@ export class YoutubeService extends ApiBaseService {
     });
   }
   public getTrending(
-    geo?: string,
+    geo?: GeoProps,
     type?: string,
     lang?: string
   ): Promise<ApiResponse<any>> {

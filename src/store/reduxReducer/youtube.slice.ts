@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { GeoProps } from "global/types";
 import { IAppStore } from "store";
-type GeoProps = "PK" | "US";
 
 export interface YoutubeState {
   ytSearch: string;
@@ -29,7 +29,7 @@ export const youtubeSlice = createSlice({
     },
   },
 });
-export const { setSearch, setLink } = youtubeSlice.actions;
+export const { setSearch, setLink, setGeo } = youtubeSlice.actions;
 
 // export default generalSlice.reducer;
 export const youtubeReducerSelector = (youtubeState: IAppStore): YoutubeState =>

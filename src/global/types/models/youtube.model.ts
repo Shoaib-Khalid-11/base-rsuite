@@ -1,3 +1,10 @@
+export type GeoProps = "PK" | "US";
+export enum Trending {
+  Now = "now",
+  Music = "music",
+  Games = "games",
+  Movies = "movies",
+}
 // export type ChannelThumbnail = {
 //   url: string;
 //   width: number;

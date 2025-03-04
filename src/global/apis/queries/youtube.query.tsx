@@ -4,9 +4,12 @@ import { YoutubeService } from "../services";
 import { useYoutubeStoreHook } from "global/hooks";
 const youtubeServices = new YoutubeService();
 export const GetYTTrending = () => {
+  const {
+    youtubeStateValue: { geo },
+  } = useYoutubeStoreHook();
   const { data, error, isError, isLoading } = useQuery<unknown[]>({
     queryKey: ["yt-trending"],
-    queryFn: () => youtubeServices.getTrending("US"),
+    queryFn: () => youtubeServices.getTrending(geo),
   });
 
   if (isError) {
@@ -20,7 +23,7 @@ export const GetYTTrending = () => {
 };
 export const GetYTHomeInfiniteScroll = () => {
   const {
-    youtubeStateValue: { initialLink },
+    youtubeStateValue: { initialLink, geo },
     setYoutubeLinkReducer,
   } = useYoutubeStoreHook();
   const {
@@ -38,7 +41,7 @@ export const GetYTHomeInfiniteScroll = () => {
       const response = await youtubeServices.getHome(
         pageParam,
         initialLink,
-        "PK"
+        geo
       );
       return {
         data: response.data,

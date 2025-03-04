@@ -1,6 +1,12 @@
+import { GeoProps } from "global/types";
 import { useCallback, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "store";
-import { setLink, setSearch, youtubeReducerSelector } from "store/reduxReducer";
+import {
+  setGeo,
+  setLink,
+  setSearch,
+  youtubeReducerSelector,
+} from "store/reduxReducer";
 
 export const useYoutubeStoreHook = () => {
   const dispatch = useAppDispatch();
@@ -18,9 +24,16 @@ export const useYoutubeStoreHook = () => {
     },
     [dispatch]
   );
+  const setYoutubeGeoReducer = useCallback(
+    (g: GeoProps) => {
+      dispatch(setGeo(g));
+    },
+    [dispatch]
+  );
   return {
     youtubeStateValue,
     setYoutubeSearchReducer,
     setYoutubeLinkReducer,
+    setYoutubeGeoReducer,
   };
 };
