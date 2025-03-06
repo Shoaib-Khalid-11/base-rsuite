@@ -1,4 +1,6 @@
-export type GeoProps = "PK" | "US";
+import { ISO_3166_2 } from "global/utils/ISO-3166-2";
+
+export type GeoProps = (typeof ISO_3166_2)[number]["ISO2"];
 export enum Trending {
   Now = "now",
   Music = "music",
