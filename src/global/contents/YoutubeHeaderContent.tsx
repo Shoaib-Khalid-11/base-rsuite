@@ -60,6 +60,7 @@ export const YoutubeHeaderContent = () => {
           open={Boolean(anchorElUser)}
           onClose={handleCloseUserMenu}
         >
+          <AppMUIMenuItem onClick={handleCloseUserMenu}></AppMUIMenuItem>
           {settings.map((setting) => {
             return (
               <AppMUIMenuItem key={setting} onClick={handleCloseUserMenu}>
