@@ -1,5 +1,5 @@
 import { CSSObject, Drawer, styled, Theme } from "@mui/material";
-import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "configs/config";
 import { ThemeMode } from "types";
 
 const openedMixin = (theme: Theme) =>

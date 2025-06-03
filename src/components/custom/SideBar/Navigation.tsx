@@ -4,7 +4,7 @@ import {
   AppMUIDivider,
   AppMUITypography,
 } from "components/elements/base";
-import { HORIZONTAL_MAX_ITEM } from "global/configs/config";
+import { HORIZONTAL_MAX_ITEM } from "configs/config";
 import { useAppStore } from "hooks";
 import { useGetMenuMaster } from "hooks/menu";
 import { Fragment, useLayoutEffect, useState } from "react";

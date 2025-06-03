@@ -2,13 +2,13 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { AppMUIBox, AppMUIToolBar } from "components/elements/base";
 import { useAppStore } from "hooks";
 // import NavBar from "shared/NavBar";
-// import Header from "global/shared/SideBar/Header";
+// import Header from " shared/SideBar/Header";
 import { MenuOrientation } from "types";
-// import Drawer from "global/shared/SideBar/Drawer";
-// import HorizontalBar from "global/shared/SideBar/Drawer/HorizantalBar";
+// import Drawer from " shared/SideBar/Drawer";
+// import HorizontalBar from " shared/SideBar/Drawer/HorizantalBar";
 import { useEffect } from "react";
 import { useToggleDrawerOpen } from "hooks/menu";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH } from "configs/config";
 import { Outlet } from "react-router-dom";
 import {
   DebouncedSearchBar,

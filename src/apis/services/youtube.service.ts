@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HEADERS } from "global/configs/youtube.config";
+import { HEADERS } from "configs/youtube.config";
 import { ApiBaseService, ApiResponse } from "./api_base.service";
 import { AxiosHeaders } from "axios";
 import { GeoProps } from "types";

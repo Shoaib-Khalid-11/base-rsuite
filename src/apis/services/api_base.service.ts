@@ -4,7 +4,7 @@ import axios, {
   type AxiosRequestConfig,
   type AxiosResponse,
 } from "axios";
-import { apiPrefix } from "global/configs/config";
+import { apiPrefix } from "configs/config";
 import { merge } from "lodash";
 
 export type ApiResponse<T> = T;

@@ -15,7 +15,7 @@ import {
   AppMUIIconButton,
   AppMUIToolBar,
 } from "components/elements/base";
-import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH, MINI_DRAWER_WIDTH } from "configs/config";
 import AppBarStyled from "components/elements/AppBarStyled";
 import ChildrenNode from "../elements/ChildrenNode";
 // import AppBarStyled from "./AppBarStyled";

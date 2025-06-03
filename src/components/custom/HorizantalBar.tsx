@@ -4,7 +4,7 @@ import {
   AppMUIBox,
   AppMUIContainer,
 } from "components/elements/base";
-import { HEADER_HEIGHT } from "global/configs/config";
+import { HEADER_HEIGHT } from "configs/config";
 import { useAppStore } from "hooks";
 import React, { cloneElement, ReactElement } from "react";
 // import Navigation from "./Content/Navigation";

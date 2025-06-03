@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useAppStore } from "hooks";
 import { MenuOrientation } from "types";
-import { DRAWER_WIDTH, HEADER_HEIGHT } from "global/configs/config";
+import { DRAWER_WIDTH, HEADER_HEIGHT } from "configs/config";
 import LogoSection from "shared/icon";
 import { DrawerHeaderStyled } from "stylus";
 

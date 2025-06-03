@@ -2,7 +2,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useGetMenuMaster, useToggleDrawerOpen } from "hooks/menu";
 import { useMemo } from "react";
 import { AppMUIBox, AppMUIDrawer } from "components/elements/base";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH } from "configs/config";
 import DrawerHeader from "./DrawerHeader";
 import { MiniDrawerStyled } from "stylus";
 import SideBarContent from "./SideBarContent";

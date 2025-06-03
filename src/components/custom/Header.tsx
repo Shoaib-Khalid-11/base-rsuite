@@ -11,7 +11,7 @@ import {
   AppMUIIconButton,
   AppMUIToolBar,
 } from "components/elements/base";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH } from "configs/config";
 import { useAppStore } from "hooks";
 import { useGetMenuMaster, useToggleDrawerOpen } from "hooks/menu";
 import { MenuOrientation } from "types";

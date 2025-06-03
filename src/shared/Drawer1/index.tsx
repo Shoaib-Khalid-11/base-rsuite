@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { AppMUIBox, AppMUIDrawer } from "components/elements/base";
 import { useGetMenuMaster, useToggleDrawerOpen } from "hooks/menu";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH } from " configs/config";
 import { useMemo } from "react";
 import DrawerHeader1 from "./DrawerHeader1";
 import DrawerContent1 from "./Content1";

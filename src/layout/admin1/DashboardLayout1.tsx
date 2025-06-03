@@ -1,10 +1,10 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { AppMUIBox, AppMUIToolBar } from "components/elements/base";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH } from " configs/config";
 import { useAppStore } from "hooks";
-import Header1 from "global/shared/SideBar1/Header";
+import Header1 from " shared/SideBar1/Header";
 import { MenuOrientation } from "types";
-import Drawer from "global/shared/SideBar1/Drawer1";
+import Drawer from " shared/SideBar1/Drawer1";
 
 // import { useState } from "react";
 import { Outlet } from "react-router-dom";

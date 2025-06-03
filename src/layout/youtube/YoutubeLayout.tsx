@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { AppMUIBox, AppMUIToolBar } from "components/elements/base";
-import { DRAWER_WIDTH } from "global/configs/config";
+import { DRAWER_WIDTH } from "configs/config";
 import { useAppStore } from "hooks";
 
 // import { useState } from "react";
