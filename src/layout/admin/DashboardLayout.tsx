@@ -1,23 +1,23 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
-import { useAppStore } from "global/hooks";
+import { AppMUIBox, AppMUIToolBar } from "components/elements/base";
+import { useAppStore } from "hooks";
 // import NavBar from "shared/NavBar";
 // import Header from "global/shared/SideBar/Header";
-import { MenuOrientation } from "global/types";
+import { MenuOrientation } from "types";
 // import Drawer from "global/shared/SideBar/Drawer";
 // import HorizontalBar from "global/shared/SideBar/Drawer/HorizantalBar";
 import { useEffect } from "react";
-import { useToggleDrawerOpen } from "global/hooks/menu";
+import { useToggleDrawerOpen } from "hooks/menu";
 import { DRAWER_WIDTH } from "global/configs/config";
 import { Outlet } from "react-router-dom";
 import {
   DebouncedSearchBar,
   MiniSideBarDrawer,
   Navigation,
-} from "global/components/custom";
+} from "components/custom";
 import { useMenuItems } from "content/menuitems";
-import HorizantalBar from "global/components/custom/HorizantalBar";
-import MiniHeader from "global/components/custom/MiniHeader";
+import HorizantalBar from "components/custom/HorizantalBar";
+import MiniHeader from "components/custom/MiniHeader";
 
 const DashboardLayout = () => {
   const theme = useTheme();

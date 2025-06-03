@@ -3,8 +3,8 @@ import {
   AppMUIButton,
   AppMUITab,
   AppMUITabs,
-} from "global/components/elements/base";
-import { Trending } from "global/types";
+} from "components/elements/base";
+import { Trending } from "types";
 import { useState } from "react";
 
 export const YoutubeTrending = () => {

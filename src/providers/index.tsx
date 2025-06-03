@@ -1,0 +1,38 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Locales from "./locales";
+import ScrollTop from "components/elements/ScrollTop";
+import NotiStackProvider from "./NotiStackProvider";
+import React from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
+import { persistor, store } from "store";
+import CustomThemeProvider from "theme";
+interface AppProviderProps {
+  children: React.ReactNode;
+}
+const AppProvider_Wrapper: React.FC<AppProviderProps> = ({ children }) => {
+  const queryClient = new QueryClient();
+
+  return (
+    <>
+      <CustomThemeProvider>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <QueryClientProvider client={queryClient}>
+              <Locales>
+                <ScrollTop>
+                  <NotiStackProvider>{children}</NotiStackProvider>
+                </ScrollTop>
+              </Locales>
+              <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
+          </PersistGate>
+        </Provider>
+      </CustomThemeProvider>
+    </>
+  );
+};
+
+export default AppProvider_Wrapper;

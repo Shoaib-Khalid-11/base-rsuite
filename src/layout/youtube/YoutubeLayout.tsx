@@ -1,17 +1,17 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
+import { AppMUIBox, AppMUIToolBar } from "components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
-import { useAppStore } from "global/hooks";
+import { useAppStore } from "hooks";
 
 // import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { useToggleDrawerOpen } from "global/hooks/menu";
-import { MenuOrientation } from "global/types";
-import { MiniSideBarDrawer, Navigation } from "global/components/custom";
-import { YoutubeHeaderContent } from "global/contents";
-import MiniHeader from "global/components/custom/MiniHeader";
-import HorizantalBar from "global/components/custom/HorizantalBar";
+import { useToggleDrawerOpen } from "hooks/menu";
+import { MenuOrientation } from "types";
+import { MiniSideBarDrawer, Navigation } from "components/custom";
+import { YoutubeHeaderContent } from "contents";
+import MiniHeader from "components/custom/MiniHeader";
+import HorizantalBar from "components/custom/HorizantalBar";
 import { useMenuItems } from "content/menuitems";
 
 const YoutubeLayout = () => {

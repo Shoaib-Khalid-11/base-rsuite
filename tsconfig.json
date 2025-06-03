@@ -36,7 +36,8 @@
     "**/*.tsx",
     "src/**/*",
     "vite.config.ts",
-    "src/global/utils/locales/**/*.json"
+    "src/utils/locales/**/*.json",
+    "tsconfig.node.json"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

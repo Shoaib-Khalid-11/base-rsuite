@@ -1,15 +1,15 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { AppMUIBox, AppMUIToolBar } from "global/components/elements/base";
+import { AppMUIBox, AppMUIToolBar } from "components/elements/base";
 import { DRAWER_WIDTH } from "global/configs/config";
-import { useAppStore } from "global/hooks";
+import { useAppStore } from "hooks";
 import Header1 from "global/shared/SideBar1/Header";
-import { MenuOrientation } from "global/types";
+import { MenuOrientation } from "types";
 import Drawer from "global/shared/SideBar1/Drawer1";
 
 // import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { useToggleDrawerOpen } from "global/hooks/menu";
+import { useToggleDrawerOpen } from "hooks/menu";
 
 const DashboardLayout1 = () => {
   const theme = useTheme();

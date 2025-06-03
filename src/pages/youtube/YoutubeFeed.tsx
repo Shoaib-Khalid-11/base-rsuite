@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { GetYTHomeInfiniteScroll } from "global/apis/queries/youtube.query";
+import { GetYTHomeInfiniteScroll } from "apis/queries/youtube.query";
 import {
   AppIcon,
   AppMUIChip,
   AppMUIGrid,
   AppMUIStack,
   AppMUITypography,
-} from "global/components/elements/base";
-import ScrollableContainer from "global/components/custom/ScrollAbleContainer";
-import YoutubeVideoCard from "global/components/custom/YoutubeVideoCard";
+} from "components/elements/base";
+import ScrollableContainer from "components/custom/ScrollAbleContainer";
+import YoutubeVideoCard from "components/custom/YoutubeVideoCard";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import Loader from "global/components/custom/Loader";
-import YoutubeShortsCard from "global/components/custom/YoutubeShortsCard";
+import Loader from "components/custom/Loader";
+import YoutubeShortsCard from "components/custom/YoutubeShortsCard";
 
 export const YoutubeFeed = () => {
   const { ref, inView } = useInView();

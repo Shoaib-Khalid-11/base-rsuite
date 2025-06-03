@@ -7,10 +7,10 @@ import {
   AppMUICardMedia,
   AppMUIContainer,
   AppMUIMasonry,
-} from "global/components/elements/base";
-import Loader from "global/components/custom/Loader";
-import { useAppStore } from "global/hooks";
-import { GetProducts } from "global/apis/queries/Products.query";
+} from "components/elements/base";
+import Loader from "components/custom/Loader";
+import { useAppStore } from "hooks";
+import { GetProducts } from "apis/queries/Products.query";
 const Dashboard = () => {
   const {
     appStateValue: { container },

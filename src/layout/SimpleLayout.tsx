@@ -1,4 +1,4 @@
-import NavBar from "global/shared/NavBar";
+import NavBar from "shared/NavBar";
 
 const SimpleLayout = () => {
   return (

@@ -1,6 +1,6 @@
-import { useYoutubeStoreHook } from "global/hooks";
-import { yt_home_path, yt_trending_path } from "global/routes/connections";
-import { NavItemType } from "global/types";
+import { useYoutubeStoreHook } from "hooks";
+import { yt_home_path, yt_trending_path } from "routes/connections";
+import { NavItemType } from "types";
 import { FormattedMessage } from "react-intl";
 export const useMenuItems = () => {
   const { setYoutubeLinkReducer } = useYoutubeStoreHook();
